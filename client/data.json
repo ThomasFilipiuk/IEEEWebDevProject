@@ -1,0 +1,16 @@
+{
+  "locations": {
+    "2ab826c0-2b89-4206-9fdf-00208769e926": {
+      "name": "Sarge",
+      "averageRating": 4.5,
+      "topItem": "Tenders",
+      "pictures": "placeholderurl"
+    },
+    "a963b2ca-d564-43d9-a292-43715855d58f": {
+      "name": "Elder",
+      "averageRating": 3.6,
+      "topItem": "Burders",
+      "pictures": "placeholderurl2"
+    }
+  } 
+}
