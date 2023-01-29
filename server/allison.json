@@ -1,799 +1,1237 @@
 [
-    {
-        "name": "Comfort 1",
-        "menuItems": [
-            {
-                "name": "Scrambled Eggs",
-                "description": "Cooked to perfection.",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1/2 cup",
-                "calories": "200"
-            },
-            {
-                "name": "Sweet Potato Pancake",
-                "description": "Savory and sweet, sweet potato pancakes",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "2 each",
-                "calories": "240"
-            },
-            {
-                "name": "Canadian Bacon",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "2 slice",
-                "calories": "50"
-            }
-        ]
-    },
-    {
-        "name": "Comfort 2",
-        "menuItems": [
-            {
-                "name": "Sweet Potato Tots",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/howgood-climate-friendly.png"
-                ],
-                "portion": "3 ounce",
-                "calories": "130"
-            },
-            {
-                "name": "Garlic Roasted Broccoli and Cauliflower",
-                "description": "Fresh broccoli and cauliflower roasted with garlic",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1/2 cup",
-                "calories": "45"
-            }
-        ]
-    },
-    {
-        "name": "Rooted 1",
-        "menuItems": [
-            {
-                "name": "Chilaquiles, Beans, Tofu Scramble",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 serving(s)",
-                "calories": "520"
-            },
-            {
-                "name": "Vegan Crumbled \"Chorizo\"",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 ounce",
-                "calories": "70"
-            },
-            {
-                "name": "Sauteed Breakfast Potatoes",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "4 oz portion",
-                "calories": "150"
-            }
-        ]
-    },
-    {
-        "name": "Fruit & Yogurt",
-        "menuItems": [
-            {
-                "name": "Cubed Cantaloupe",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png",
-                    "https://dineoncampus.com/img/howgood-climate-friendly.png",
-                    "https://dineoncampus.com/img/howgood-good.png"
-                ],
-                "portion": "2 ounce",
-                "calories": "20"
-            },
-            {
-                "name": "Cubed Pineapple",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1/2 cup",
-                "calories": "40"
-            },
-            {
-                "name": "2% Greek Plain Yogurt",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "4 ounce",
-                "calories": "90"
-            },
-            {
-                "name": "Low Fat Vanilla Yogurt",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "4 ounce",
-                "calories": "100"
-            },
-            {
-                "name": "Cubed Honeydew",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png",
-                    "https://dineoncampus.com/img/howgood-great.png",
-                    "https://dineoncampus.com/img/howgood-climate-friendly.png"
-                ],
-                "portion": "2 ounce",
-                "calories": "20"
-            },
-            {
-                "name": "Low Fat Strawberry Yogurt",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "4 ounce",
-                "calories": "110"
-            },
-            {
-                "name": "Oats 'n Honey Granola",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "20"
-            },
-            {
-                "name": "Raisins",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "25"
-            },
-            {
-                "name": "Light Cream Cheese",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "40"
-            },
-            {
-                "name": "Sunflower Spread",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 tsp",
-                "calories": "35"
-            },
-            {
-                "name": "Grape Jelly",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "60"
-            },
-            {
-                "name": "Strawberry Preserves",
-                "description": "Strawberry Preserves",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "60"
-            },
-            {
-                "name": "Butter",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "100"
-            },
-            {
-                "name": "strawberry cream cheese",
-                "description": "strawberry preserves blended in cream cheese",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "2 tbsp",
-                "calories": "110"
-            }
-        ]
-    },
-    {
-        "name": "Flame 1",
-        "menuItems": [
-            {
-                "name": "Eggs",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "3 floz",
-                "calories": "130"
-            },
-            {
-                "name": "Egg Whites",
-                "description": "two egg whites made-to-order",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "3 floz",
-                "calories": "45"
-            },
-            {
-                "name": "Chopped Spinach",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 ounce",
-                "calories": "5"
-            },
-            {
-                "name": "Chopped Broccoli",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 ounce",
-                "calories": "10"
-            }
-        ]
-    },
-    {
-        "name": "Flame 2",
-        "menuItems": [
-            {
-                "name": "Shredded Sharp Cheddar Cheese",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "60"
-            },
-            {
-                "name": "Turkey Sausage Link",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "50"
-            },
-            {
-                "name": "Diced Ham",
-                "description": "",
-                "attributes": [],
-                "portion": "1 tbsp",
-                "calories": "0"
-            }
-        ]
-    },
-    {
-        "name": "Flame 3",
-        "menuItems": [
-            {
-                "name": "Chopped Green Bell Pepper",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "0"
-            },
-            {
-                "name": "Sliced Mushrooms",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "0"
-            },
-            {
-                "name": "Diced Onions",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "0"
-            },
-            {
-                "name": "Chopped Tomatoes",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 tbsp",
-                "calories": "0"
-            }
-        ]
-    },
-    {
-        "name": "Bakery-Dessert",
-        "menuItems": [
-            {
-                "name": "Pumpkin Muffin",
-                "description": "Moist pumpkin, cinnamon and nutmeg.",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "160"
-            },
-            {
-                "name": "Grape Oatmeal Bars",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "200"
-            }
-        ]
-    },
-    {
-        "name": "Pantry 1",
-        "menuItems": [
-            {
-                "name": "English Muffin",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "130"
-            },
-            {
-                "name": "White Bread",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "2 slice",
-                "calories": "160"
-            },
-            {
-                "name": "Whole Wheat Bread",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "2 slice",
-                "calories": "150"
-            },
-            {
-                "name": "Plain Bagel",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "300"
-            },
-            {
-                "name": "Cinnamon Raisin Bread",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 slice",
-                "calories": "70"
-            },
-            {
-                "name": "Frosted Flakes",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "150"
-            },
-            {
-                "name": "Froot Loops",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "110"
-            },
-            {
-                "name": "Cinnamon Toast Crunch",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "170"
-            },
-            {
-                "name": "Raisin Bran",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "190"
-            },
-            {
-                "name": "Special K",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "120"
-            },
-            {
-                "name": "Banana",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "110"
-            },
-            {
-                "name": "Orange",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "60"
-            },
-            {
-                "name": "Apple",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "70"
-            }
-        ]
-    },
-    {
-        "name": "Gluten Free Pantry",
-        "menuItems": [
-            {
-                "name": "Rice Krispies",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "100"
-            },
-            {
-                "name": "Cheerios",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "100"
-            },
-            {
-                "name": "Lucky Charms",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 cup",
-                "calories": "140"
-            },
-            {
-                "name": "Udi's Hamburger Bun",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "240"
-            },
-            {
-                "name": "Udi's White Bread",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 slice",
-                "calories": "150"
-            },
-            {
-                "name": "Udi's Plain Bagel",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "290"
-            }
-        ]
-    },
-    {
-        "name": "Soup",
-        "menuItems": [
-            {
-                "name": "Oatmeal",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_balanced_200px.png"
-                ],
-                "portion": "1 ladle-4oz",
-                "calories": "90"
-            },
-            {
-                "name": "Chocolate Oatmeal",
-                "description": "Chocolate Lover's Oatmeal",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "1 ladle-6oz",
-                "calories": "250"
-            }
-        ]
-    },
-    {
-        "name": "Beverage",
-        "menuItems": [
-            {
-                "name": "Orange Juice",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "230"
-            },
-            {
-                "name": "Apple Juice",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "230"
-            },
-            {
-                "name": "Cranberry Juice",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "210"
-            },
-            {
-                "name": "Coffee",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "8 ounce",
-                "calories": "0"
-            },
-            {
-                "name": "Decaf Coffee",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "8 floz",
-                "calories": "0"
-            },
-            {
-                "name": "Hot Tea",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "8 ounce",
-                "calories": "0"
-            },
-            {
-                "name": "Mountain Berry Powerade",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "120"
-            },
-            {
-                "name": "Diet Coke",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 floz",
-                "calories": "0"
-            },
-            {
-                "name": "Lemonade",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "90"
-            },
-            {
-                "name": "Coca-Cola",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "210"
-            },
-            {
-                "name": "Sprite",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "200"
-            },
-            {
-                "name": "Barq's Root Beer",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "230"
-            },
-            {
-                "name": "Sweet Iced Tea",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "180"
-            },
-            {
-                "name": "Sprite",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png"
-                ],
-                "portion": "1 floz",
-                "calories": "15"
-            },
-            {
-                "name": "Milk, Skim",
-                "description": "Nonfat",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "170"
-            },
-            {
-                "name": "Milk, Lowfat, 1%",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "200"
-            },
-            {
-                "name": "Chocolate Milk, Low Fat 1%",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png"
-                ],
-                "portion": "16 floz",
-                "calories": "380"
-            },
-            {
-                "name": "Milk, Soy, Chocolate, 8 fl oz",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "170"
-            },
-            {
-                "name": "Milk, Soy, Vanilla, 8 fl oz",
-                "description": "",
-                "attributes": [
-                    "https://dineoncampus.com/img/icon_vegan_200px.png",
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png"
-                ],
-                "portion": "1 each",
-                "calories": "150"
-            }
-        ]
-    }
+  {
+    "name": "Comfort 1",
+    "menuItems": [
+      {
+        "name": "Scrambled Eggs",
+        "description": "Cooked to perfection.",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "200"
+      },
+      {
+        "name": "Trix Pancakes",
+        "description": "Trix are for kids! Sweet Trix cereal pancakes topped with vanilla icing",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "2 each",
+        "calories": "270"
+      },
+      {
+        "name": "Sausage Link",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "2 each",
+        "calories": "200"
+      }
+    ]
+  },
+  {
+    "name": "Comfort 2",
+    "menuItems": [
+      {
+        "name": "Parmesan Potato Wedges",
+        "description": "Crispy Parmesan Potato Wedges",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "170"
+      },
+      {
+        "name": "Sauteed Spinach",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          },
+          {
+            "name": "Good",
+            "description": "Recipe has an environmental and social impact better than 75% of food."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "50"
+      }
+    ]
+  },
+  {
+    "name": "Rooted 1",
+    "menuItems": [
+      {
+        "name": "Everything Bagel Avocado Toast",
+        "description": "Crunchy bagel with avocado, olive oil drizzle and everything but the bagel seasoning",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "460"
+      },
+      {
+        "name": "Tofu Scramble, Salsa",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1-1/2 cup",
+        "calories": "580"
+      },
+      {
+        "name": "Mexican Red Rice",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "140"
+      }
+    ]
+  },
+  {
+    "name": "Fruit & Yogurt",
+    "menuItems": [
+      {
+        "name": "Cubed Cantaloupe",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          },
+          {
+            "name": "Good",
+            "description": "Recipe has an environmental and social impact better than 75% of food."
+          }
+        ],
+        "portion": "2 ounce",
+        "calories": "20"
+      },
+      {
+        "name": "Cubed Pineapple",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "40"
+      },
+      {
+        "name": "2% Greek Plain Yogurt",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "90"
+      },
+      {
+        "name": "Low Fat Vanilla Yogurt",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "100"
+      },
+      {
+        "name": "Cubed Honeydew",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Great",
+            "description": "Recipe has an environmental and social impact better than 85% of food."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          }
+        ],
+        "portion": "2 ounce",
+        "calories": "20"
+      },
+      {
+        "name": "Low Fat Strawberry Yogurt",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "110"
+      },
+      {
+        "name": "Oats 'n Honey Granola",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "20"
+      },
+      {
+        "name": "Raisins",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "25"
+      },
+      {
+        "name": "Light Cream Cheese",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "40"
+      },
+      {
+        "name": "Sunflower Spread",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 tsp",
+        "calories": "35"
+      },
+      {
+        "name": "Grape Jelly",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "60"
+      },
+      {
+        "name": "Strawberry Preserves",
+        "description": "Strawberry Preserves",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "60"
+      },
+      {
+        "name": "Butter",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "100"
+      },
+      {
+        "name": "strawberry cream cheese",
+        "description": "strawberry preserves blended in cream cheese",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "2 tbsp",
+        "calories": "110"
+      }
+    ]
+  },
+  {
+    "name": "Flame 1",
+    "menuItems": [
+      {
+        "name": "Eggs",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "3 floz",
+        "calories": "130"
+      },
+      {
+        "name": "Egg Whites",
+        "description": "two egg whites made-to-order",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "3 floz",
+        "calories": "45"
+      },
+      {
+        "name": "Chopped Spinach",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 ounce",
+        "calories": "5"
+      },
+      {
+        "name": "Chopped Broccoli",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 ounce",
+        "calories": "10"
+      }
+    ]
+  },
+  {
+    "name": "Flame 2",
+    "menuItems": [
+      {
+        "name": "Shredded Sharp Cheddar Cheese",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "60"
+      },
+      {
+        "name": "Turkey Sausage Link",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "50"
+      },
+      {
+        "name": "Diced Ham",
+        "description": "",
+        "attributes": [],
+        "portion": "1 tbsp",
+        "calories": "0"
+      }
+    ]
+  },
+  {
+    "name": "Flame 3",
+    "menuItems": [
+      {
+        "name": "Chopped Green Bell Pepper",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Sliced Mushrooms",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Diced Onions",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Chopped Tomatoes",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      }
+    ]
+  },
+  {
+    "name": "Bakery-Dessert",
+    "menuItems": [
+      {
+        "name": "Chocolate Chip Scone",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "430"
+      },
+      {
+        "name": "Blueberry Muffins",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "180"
+      }
+    ]
+  },
+  {
+    "name": "Pantry 1",
+    "menuItems": [
+      {
+        "name": "English Muffin",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "130"
+      },
+      {
+        "name": "White Bread",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "2 slice",
+        "calories": "160"
+      },
+      {
+        "name": "Whole Wheat Bread",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "2 slice",
+        "calories": "150"
+      },
+      {
+        "name": "Plain Bagel",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "300"
+      },
+      {
+        "name": "Cinnamon Raisin Bread",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 slice",
+        "calories": "70"
+      },
+      {
+        "name": "Frosted Flakes",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "150"
+      },
+      {
+        "name": "Froot Loops",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "110"
+      },
+      {
+        "name": "Cinnamon Toast Crunch",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "170"
+      },
+      {
+        "name": "Raisin Bran",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "190"
+      },
+      {
+        "name": "Special K",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "120"
+      },
+      {
+        "name": "Banana",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "110"
+      },
+      {
+        "name": "Orange",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "60"
+      },
+      {
+        "name": "Apple",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "70"
+      }
+    ]
+  },
+  {
+    "name": "Gluten Free Pantry",
+    "menuItems": [
+      {
+        "name": "Rice Krispies",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "100"
+      },
+      {
+        "name": "Cheerios",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "100"
+      },
+      {
+        "name": "Lucky Charms",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "140"
+      },
+      {
+        "name": "Udi's Hamburger Bun",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "240"
+      },
+      {
+        "name": "Udi's White Bread",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 slice",
+        "calories": "150"
+      },
+      {
+        "name": "Udi's Plain Bagel",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "290"
+      }
+    ]
+  },
+  {
+    "name": "Soup",
+    "menuItems": [
+      {
+        "name": "Oatmeal",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 ladle-4oz",
+        "calories": "90"
+      },
+      {
+        "name": "Pineapple Steel Cut Oatmeal",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "8 floz",
+        "calories": "160"
+      }
+    ]
+  },
+  {
+    "name": "Beverage",
+    "menuItems": [
+      {
+        "name": "Orange Juice",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "230"
+      },
+      {
+        "name": "Apple Juice",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "230"
+      },
+      {
+        "name": "Cranberry Juice",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "210"
+      },
+      {
+        "name": "Coffee",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "8 ounce",
+        "calories": "0"
+      },
+      {
+        "name": "Decaf Coffee",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "8 floz",
+        "calories": "0"
+      },
+      {
+        "name": "Hot Tea",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "8 ounce",
+        "calories": "0"
+      },
+      {
+        "name": "Mountain Berry Powerade",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "120"
+      },
+      {
+        "name": "Diet Coke",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 floz",
+        "calories": "0"
+      },
+      {
+        "name": "Lemonade",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "90"
+      },
+      {
+        "name": "Coca-Cola",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "210"
+      },
+      {
+        "name": "Sprite",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "200"
+      },
+      {
+        "name": "Barq's Root Beer",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "230"
+      },
+      {
+        "name": "Sweet Iced Tea",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "180"
+      },
+      {
+        "name": "Sprite",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 floz",
+        "calories": "15"
+      },
+      {
+        "name": "Milk, Skim",
+        "description": "Nonfat",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "170"
+      },
+      {
+        "name": "Milk, Lowfat, 1%",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "200"
+      },
+      {
+        "name": "Chocolate Milk, Low Fat 1%",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "16 floz",
+        "calories": "380"
+      },
+      {
+        "name": "Milk, Soy, Chocolate, 8 fl oz",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "170"
+      },
+      {
+        "name": "Milk, Soy, Vanilla, 8 fl oz",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "150"
+      }
+    ]
+  }
 ]

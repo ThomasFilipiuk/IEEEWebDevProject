@@ -1,0 +1,712 @@
+[
+  {
+    "name": "Comfort",
+    "menuItems": [
+      {
+        "name": "Scrambled Eggs",
+        "description": "Cooked to perfection.",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "200"
+      },
+      {
+        "name": "Strawberry Chia Seed Pancakes",
+        "description": "Strawberry & chia seed pancakes",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "2 each",
+        "calories": "160"
+      },
+      {
+        "name": "Candied Bacon",
+        "description": "Candied pork bacon with brown sugar",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "2 slice",
+        "calories": "160"
+      },
+      {
+        "name": "Fried Hash Brown Patty",
+        "description": "",
+        "attributes": [],
+        "portion": "1 each",
+        "calories": "150"
+      },
+      {
+        "name": "Roasted Mushroom Mix",
+        "description": "Mushrooms with thyme, parsley and rosemary",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "100"
+      }
+    ]
+  },
+  {
+    "name": "Rooted",
+    "menuItems": [
+      {
+        "name": "Vegan French Toast",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 slice",
+        "calories": "460"
+      },
+      {
+        "name": "Cheesy Tofu Fajita Scramble",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 cup",
+        "calories": "400"
+      },
+      {
+        "name": "Beyond Meat Breakfast Sausage",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "120"
+      },
+      {
+        "name": "Curry Roasted Cauliflower",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "4 ounce",
+        "calories": "110"
+      }
+    ]
+  },
+  {
+    "name": "Bakery-Dessert",
+    "menuItems": [
+      {
+        "name": "Chocolate Chip Scone",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "430"
+      },
+      {
+        "name": "Blueberry Muffins",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "180"
+      }
+    ]
+  },
+  {
+    "name": "Omelet",
+    "menuItems": [
+      {
+        "name": "Omelet Bar",
+        "description": "",
+        "attributes": [],
+        "portion": "1 plate",
+        "calories": "0"
+      },
+      {
+        "name": "Eggs",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "3 floz",
+        "calories": "130"
+      },
+      {
+        "name": "Egg Whites",
+        "description": "two egg whites made-to-order",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "3 floz",
+        "calories": "45"
+      },
+      {
+        "name": "Chopped Spinach",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 ounce",
+        "calories": "5"
+      },
+      {
+        "name": "Chopped Broccoli",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 ounce",
+        "calories": "10"
+      },
+      {
+        "name": "Chopped Tomatoes",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Diced Onions",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Sliced Mushrooms",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Chopped Green Bell Pepper",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Shredded Sharp Cheddar Cheese",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "60"
+      },
+      {
+        "name": "Crumbled Feta Cheese",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "25"
+      },
+      {
+        "name": "Diced Ham",
+        "description": "",
+        "attributes": [],
+        "portion": "1 tbsp",
+        "calories": "0"
+      },
+      {
+        "name": "Pork Sausage Link",
+        "description": "",
+        "attributes": [],
+        "portion": "1 each",
+        "calories": "130"
+      },
+      {
+        "name": "Diced Bacon",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1 tbsp",
+        "calories": "45"
+      }
+    ]
+  },
+  {
+    "name": "Fruit & Yogurt",
+    "menuItems": [
+      {
+        "name": "Low Fat Vanilla Yogurt",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "110"
+      },
+      {
+        "name": "Yogurt, Strawberry, Lite, Yoplait, 6 oz",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "80"
+      },
+      {
+        "name": "2% Greek Plain Yogurt",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "90"
+      },
+      {
+        "name": "Cubed Pineapple",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/4 cup",
+        "calories": "20"
+      },
+      {
+        "name": "Cubed Cantaloupe",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          },
+          {
+            "name": "Good",
+            "description": "Recipe has an environmental and social impact better than 75% of food."
+          }
+        ],
+        "portion": "1/4 cup",
+        "calories": "15"
+      },
+      {
+        "name": "Cubed Honeydew",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Great",
+            "description": "Recipe has an environmental and social impact better than 85% of food."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          }
+        ],
+        "portion": "1/4 cup",
+        "calories": "15"
+      },
+      {
+        "name": "Banana",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "110"
+      },
+      {
+        "name": "Grapefruit",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Great",
+            "description": "Recipe has an environmental and social impact better than 85% of food."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          }
+        ],
+        "portion": "1 half",
+        "calories": "35"
+      },
+      {
+        "name": "Granny Smith Apple",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "100"
+      },
+      {
+        "name": "Orange",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1 each",
+        "calories": "60"
+      },
+      {
+        "name": "Oats 'n Honey Granola",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          }
+        ],
+        "portion": "3 tbsp",
+        "calories": "60"
+      },
+      {
+        "name": "Red Seedless Grapes",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/4 cup",
+        "calories": "25"
+      },
+      {
+        "name": "Green Seedless Grapes",
+        "description": "",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Gluten-free",
+            "description": "Menu items made without gluten containing ingredients."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/4 cup",
+        "calories": "30"
+      }
+    ]
+  },
+  {
+    "name": "Soup",
+    "menuItems": [
+      {
+        "name": "Chocolate Oatmeal",
+        "description": "Chocolate Lover's Oatmeal",
+        "attributes": [
+          {
+            "name": "Vegetarian",
+            "description": "Contains no meat, poultry, fish or seafood but may contain eggs or dairy."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "160"
+      },
+      {
+        "name": "Steel Cut Oatmeal",
+        "description": "A classsic hot breakfast cereal",
+        "attributes": [
+          {
+            "name": "Vegan",
+            "description": "Contains no animal-based ingredients or by-products."
+          },
+          {
+            "name": "Balanced",
+            "description": "Food that has balanced nutrients & portion size."
+          },
+          {
+            "name": "Best",
+            "description": "Recipe has an environmental and social impact better than 95% of food."
+          },
+          {
+            "name": "Climate friendly",
+            "description": "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large."
+          }
+        ],
+        "portion": "1/2 cup",
+        "calories": "70"
+      }
+    ]
+  }
+]
