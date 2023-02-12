@@ -16,6 +16,9 @@ const mapNutritionalInfo = async(nutritionalInfoElements: ElementHandle[]) => {
 
   for (const nutritionalInfoElement of nutritionalInfoElements) {
     const menuItemName = await nutritionalInfoElement.$eval(".modal-title", e => e.textContent);
+    if (!menuItemName) {
+      continue;
+    }
     const nutrientElements = await nutritionalInfoElement.$$("li");
 
     const nutrients: Nutrient[] = [];
@@ -31,24 +34,29 @@ const mapNutritionalInfo = async(nutritionalInfoElements: ElementHandle[]) => {
         });
       }
     }
+
+    const ingredients: string[] = [];
     
     const modalBody = await nutritionalInfoElement.$(".modal-body");
     const modalBodyDiv = await modalBody?.$("div");
     const ingredientsText = await modalBodyDiv?.$eval("div", e => e.textContent);
     const ingredientsTextTrimmed = ingredientsText?.trim();
     const ingredientsSplit = ingredientsTextTrimmed?.split(': ');
-    const ingredientsUntrimmed = ingredientsSplit[1].split(',');
+    if (ingredientsSplit) {
+      const ingredientsUntrimmed = ingredientsSplit[1].split(',');
 
-    const ingredients: string[] = [];
-    for (const ingredient of ingredientsUntrimmed) {
-      ingredients.push(ingredient.trim());
+
+      for (const ingredient of ingredientsUntrimmed) {
+        ingredients.push(ingredient.trim());
+      }
     }
 
     await nutritionalInfoElement.evaluate(e => {
       const close = e.querySelector(".close");
+      // @ts-ignore
       close.click();
     });
-
+    
     nutritionalInfo[menuItemName] = {
       ingredients,
       nutrients
@@ -113,6 +121,7 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
     }
 
     const nutritionalInfoButton = await menuItemWrapper?.$(".btn.mt-3.btn-nutrition.btn-info-outline.btn-sm");
+    // @ts-ignore
     await nutritionalInfoButton?.evaluate(e => e.click());
       
     await page.waitForSelector(".modal-content");
@@ -186,6 +195,7 @@ const scrapeDiningHallInfo = async() => {
   page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
   const dropdownItems = await page.$$("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
   for (let i = 1; i <= 4; i++) {
+    // @ts-ignore
     dropdownItems[i].evaluate(e => e.click());
     diningHallInfo.push(await scrapeCategories(page));
   }

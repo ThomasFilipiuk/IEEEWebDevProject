@@ -16,6 +16,9 @@ const mapNutritionalInfo = async (nutritionalInfoElements) => {
     const nutritionalInfo = {};
     for (const nutritionalInfoElement of nutritionalInfoElements) {
         const menuItemName = await nutritionalInfoElement.$eval(".modal-title", e => e.textContent);
+        if (!menuItemName) {
+            continue;
+        }
         const nutrientElements = await nutritionalInfoElement.$$("li");
         const nutrients = [];
         for (const nutrientElement of nutrientElements) {
@@ -29,18 +32,21 @@ const mapNutritionalInfo = async (nutritionalInfoElements) => {
                 });
             }
         }
+        const ingredients = [];
         const modalBody = await nutritionalInfoElement.$(".modal-body");
         const modalBodyDiv = await (modalBody === null || modalBody === void 0 ? void 0 : modalBody.$("div"));
         const ingredientsText = await (modalBodyDiv === null || modalBodyDiv === void 0 ? void 0 : modalBodyDiv.$eval("div", e => e.textContent));
         const ingredientsTextTrimmed = ingredientsText === null || ingredientsText === void 0 ? void 0 : ingredientsText.trim();
         const ingredientsSplit = ingredientsTextTrimmed === null || ingredientsTextTrimmed === void 0 ? void 0 : ingredientsTextTrimmed.split(': ');
-        const ingredientsUntrimmed = ingredientsSplit[1].split(',');
-        const ingredients = [];
-        for (const ingredient of ingredientsUntrimmed) {
-            ingredients.push(ingredient.trim());
+        if (ingredientsSplit) {
+            const ingredientsUntrimmed = ingredientsSplit[1].split(',');
+            for (const ingredient of ingredientsUntrimmed) {
+                ingredients.push(ingredient.trim());
+            }
         }
         await nutritionalInfoElement.evaluate(e => {
             const close = e.querySelector(".close");
+            // @ts-ignore
             close.click();
         });
         nutritionalInfo[menuItemName] = {
@@ -95,6 +101,7 @@ const mapMenuItems = async (menuItemsElements, page) => {
             calories = parseInt(caloriesText);
         }
         const nutritionalInfoButton = await (menuItemWrapper === null || menuItemWrapper === void 0 ? void 0 : menuItemWrapper.$(".btn.mt-3.btn-nutrition.btn-info-outline.btn-sm"));
+        // @ts-ignore
         await (nutritionalInfoButton === null || nutritionalInfoButton === void 0 ? void 0 : nutritionalInfoButton.evaluate(e => e.click()));
         await page.waitForSelector(".modal-content");
         return {
@@ -148,6 +155,7 @@ const scrapeDiningHallInfo = async () => {
     page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
     const dropdownItems = await page.$$("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
     for (let i = 1; i <= 4; i++) {
+        // @ts-ignore
         dropdownItems[i].evaluate(e => e.click());
         diningHallInfo.push(await scrapeCategories(page));
     }
@@ -162,143 +170,9 @@ const scrapeDiningHallInfo = async () => {
 scrapeDiningHallInfo();
 // scheduled to run at 12:01 AM CST
 const scrapeJob = node_cron_1.default.schedule("0 1 0 * * *", () => {
-    console.log("shit");
+    scrapeDiningHallInfo();
 }, {
     timezone: "America/Chicago"
-});
-app.get('/', (req, res) => {
-    const p = async () => {
-        const browser = await puppeteer_1.default.launch({ headless: false });
-        const page = await browser.newPage();
-        await page.goto('https://dineoncampus.com/northwestern/whats-on-the-menu', { timeout: 0 });
-        const querySelector = '.table.b-table.menu-items.b-table-caption-top.b-table-stacked-md';
-        await page.waitForSelector(querySelector);
-        const allisonCategories = await page.evaluate((querySelector) => {
-            const mapAttributes = (attributeElem) => {
-                const attributes = {
-                    "https://dineoncampus.com/img/icon_balanced_200px.png": { name: "Balanced", description: "Food that has balanced nutrients & portion size." },
-                    "https://dineoncampus.com/img/icon_vegan_200px.png": { name: "Vegan", description: "Contains no animal-based ingredients or by-products." },
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png": { name: "Vegetarian", description: "Contains no meat, poultry, fish or seafood but may contain eggs or dairy." },
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png": { name: "Gluten-free", description: "Menu items made without gluten containing ingredients." },
-                    "https://dineoncampus.com/img/howgood-best.png": { name: "Best", description: "Recipe has an environmental and social impact better than 95% of food." },
-                    "https://dineoncampus.com/img/howgood-great.png": { name: "Great", description: "Recipe has an environmental and social impact better than 85% of food." },
-                    "https://dineoncampus.com/img/howgood-good.png": { name: "Good", description: "Recipe has an environmental and social impact better than 75% of food." },
-                    "https://dineoncampus.com/img/howgood-climate-friendly.png": { name: "Climate friendly", description: "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large." }
-                };
-                // mapping src of img to name and description
-                return attributes[attributeElem.src];
-            };
-            const mapMenuItems = (menuItemElem) => {
-                var _a, _b, _c, _d;
-                const menuItemWrapper = menuItemElem.querySelector('.category-items_itemNameWrapperSm_1wGbS');
-                const menuItemName = (_b = (_a = menuItemWrapper === null || menuItemWrapper === void 0 ? void 0 : menuItemWrapper.querySelector('strong')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim();
-                const textNodes = Array.prototype.filter.call(menuItemWrapper === null || menuItemWrapper === void 0 ? void 0 : menuItemWrapper.childNodes, e => e.nodeType === Node.TEXT_NODE)
-                    .map(e => e.textContent);
-                const menuItemDescription = textNodes[0].trim();
-                const attributes = Array.from(menuItemElem.querySelectorAll('.category-items_icon_1urJ3'), mapAttributes);
-                // make map function that splits src by '_' and gets attribute
-                const portion = (_c = menuItemElem.querySelector('[data-label=Portion]')) === null || _c === void 0 ? void 0 : _c.textContent;
-                const calories = (_d = menuItemElem.querySelector('[data-label=Calories]')) === null || _d === void 0 ? void 0 : _d.textContent;
-                // const nutritionalInfoButton = menuItemElem.querySelector('button');
-                // nutritionalInfoButton?.click();
-                return {
-                    name: menuItemName,
-                    description: menuItemDescription,
-                    attributes: attributes,
-                    portion: portion,
-                    calories: calories,
-                    // nutritionalInfo: nutritionalInfo
-                };
-            };
-            const mapCategories = (categoryElem) => {
-                var _a;
-                const categoryName = (_a = categoryElem.querySelector('caption')) === null || _a === void 0 ? void 0 : _a.textContent;
-                const tableBody = categoryElem.querySelector('tbody');
-                const menuItems = Array.from(tableBody.querySelectorAll('tr'), mapMenuItems);
-                return {
-                    name: categoryName,
-                    menuItems: menuItems
-                };
-            };
-            // returns array of categories
-            return Array.from(document.querySelectorAll(querySelector), mapCategories); // querySelector = class name of all tables
-            // select all tables from the page
-        }, querySelector);
-        page.click("#dropdown-grouped__BV_toggle_");
-        page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
-        // await page.evaluate(() => {
-        //   const dropdownItems = Array.from(document.querySelectorAll('[aria-describedby=building_6113ef5ae82971150a5bf8ba]'));
-        //   dropdownItems[1].click();
-        // });
-        const dropdownItems = await page.$$("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
-        await dropdownItems[1].click();
-        await page.waitForSelector(querySelector);
-        const sargentCategories = await page.evaluate((querySelector) => {
-            const mapAttributes = (attributeElem) => {
-                const attributes = {
-                    "https://dineoncampus.com/img/icon_balanced_200px.png": { name: "Balanced", description: "Food that has balanced nutrients & portion size." },
-                    "https://dineoncampus.com/img/icon_vegan_200px.png": { name: "Vegan", description: "Contains no animal-based ingredients or by-products." },
-                    "https://dineoncampus.com/img/icon_vegetarian_200px.png": { name: "Vegetarian", description: "Contains no meat, poultry, fish or seafood but may contain eggs or dairy." },
-                    "https://dineoncampus.com/img/icon_avoiding_gluten_200px.png": { name: "Gluten-free", description: "Menu items made without gluten containing ingredients." },
-                    "https://dineoncampus.com/img/howgood-best.png": { name: "Best", description: "Recipe has an environmental and social impact better than 95% of food." },
-                    "https://dineoncampus.com/img/howgood-great.png": { name: "Great", description: "Recipe has an environmental and social impact better than 85% of food." },
-                    "https://dineoncampus.com/img/howgood-good.png": { name: "Good", description: "Recipe has an environmental and social impact better than 75% of food." },
-                    "https://dineoncampus.com/img/howgood-climate-friendly.png": { name: "Climate friendly", description: "This recipe has a Farm-To-Gate Carbon Footprint lower than 70% of conventional food at large." }
-                };
-                // mapping src of img to name and description
-                return attributes[attributeElem.src];
-            };
-            const mapMenuItems = (menuItemElem) => {
-                var _a, _b, _c, _d;
-                const menuItemWrapper = menuItemElem.querySelector('.category-items_itemNameWrapperSm_1wGbS');
-                const menuItemName = (_b = (_a = menuItemWrapper === null || menuItemWrapper === void 0 ? void 0 : menuItemWrapper.querySelector('strong')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim();
-                const textNodes = Array.prototype.filter.call(menuItemWrapper === null || menuItemWrapper === void 0 ? void 0 : menuItemWrapper.childNodes, e => e.nodeType === Node.TEXT_NODE)
-                    .map(e => e.textContent);
-                const menuItemDescription = textNodes[0].trim();
-                const attributes = Array.from(menuItemElem.querySelectorAll('.category-items_icon_1urJ3'), mapAttributes);
-                const portion = (_c = menuItemElem.querySelector('[data-label=Portion]')) === null || _c === void 0 ? void 0 : _c.textContent;
-                const calories = (_d = menuItemElem.querySelector('[data-label=Calories]')) === null || _d === void 0 ? void 0 : _d.textContent;
-                // const nutritionalInfoButton = menuItemElem.querySelector('button');
-                // console.log(nutritionalInfoButton?.textContent);
-                // nutritionalInfoButton?.click();
-                return {
-                    name: menuItemName,
-                    description: menuItemDescription,
-                    attributes: attributes,
-                    portion: portion,
-                    calories: calories,
-                    // nutritionalInfo: nutritionalInfo
-                };
-            };
-            const mapCategories = (categoryElem) => {
-                var _a;
-                const categoryName = (_a = categoryElem.querySelector('caption')) === null || _a === void 0 ? void 0 : _a.textContent;
-                const tableBody = categoryElem.querySelector('tbody');
-                const menuItems = Array.from(tableBody.querySelectorAll('tr'), mapMenuItems);
-                return {
-                    name: categoryName,
-                    menuItems: menuItems
-                };
-            };
-            // returns array of categories
-            return Array.from(document.querySelectorAll(querySelector), mapCategories); // querySelector = class name of all tables
-            // select all tables from the page
-        }, querySelector);
-        console.log("finished scraping");
-        fs_1.default.writeFile('allison.json', JSON.stringify(allisonCategories, null, 2), err => {
-            if (err) {
-                console.error(err);
-            }
-        });
-        fs_1.default.writeFile('sargent.json', JSON.stringify(sargentCategories, null, 2), err => {
-            if (err) {
-                console.error(err);
-            }
-        });
-        await browser.close();
-    };
-    p();
-    res.send("Scraping web data");
 });
 app.get('/dining-hall/:diningHallName', (req, res) => {
     fs_1.default.readFile(`${req.params.diningHallName}.json`, (err, data) => {
