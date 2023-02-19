@@ -8,6 +8,19 @@ import { Category, MenuItem, Attribute, NutritionalInfo, Nutrient } from './type
 
 dotenv.config();
 
+// connect to DB
+const { MongoClient } = require('mongodb')
+const uri = 'mongodb+srv://DiningAppIEEE:DineOnCampus123@cluster0\
+.i6moqlo.mongodb.net/?retryWrites=true&w=majority'
+ 
+const client = new MongoClient(uri);
+try {
+    client.connect(); 
+} 
+catch (e) {
+    console.error(e);
+} 
+
 const app: Express = express();
 const port = process.env.PORT;
 
@@ -126,14 +139,32 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
       
     await page.waitForSelector(".modal-content");
 
-    return {
+    const return_ob = {
       name: menuItemNameTrimmed,
       description: menuItemDescription,
       attributes: attributes,
       portion: portion,
       calories: calories,
+      //diningHall : diningHall,
       nutritionalInfo: {ingredients: [], nutrients: []}
     };
+    
+    async function db_input(ob:MenuItem) {
+      try {
+        let response:any;
+        //const dininghall = ob.diningHall;
+        const dininghall = 'plex-west';
+        response = await client.db('daily_menu').collection(dininghall).insertOne(return_ob);
+      }
+      catch(e) {
+        console.log(e);
+      }
+    }
+
+    await db_input(return_ob);
+
+    return return_ob;
+
   }));
 }
 
