@@ -161,7 +161,7 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
       }
     }
 
-    await db_input(return_ob);
+    //await db_input(return_ob);
 
     return return_ob;
 
