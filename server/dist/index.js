@@ -162,7 +162,7 @@ const scrapeMeals = async (page) => {
     return meals;
 };
 const scrapeDiningHallInfo = async () => {
-    const browser = await puppeteer_1.default.launch({ headless: false });
+    const browser = await puppeteer_1.default.launch();
     const page = await browser.newPage();
     await page.goto('https://dineoncampus.com/northwestern/whats-on-the-menu', { timeout: 0 });
     const diningHallInfo = [];

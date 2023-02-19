@@ -206,7 +206,7 @@ const scrapeMeals = async(page: Page) => {
 }
 
 const scrapeDiningHallInfo = async() => {
-  const browser = await puppeteer.launch({headless: false})
+  const browser = await puppeteer.launch()
 
   const page = await browser.newPage();
 
