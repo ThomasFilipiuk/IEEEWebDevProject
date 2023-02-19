@@ -1,0 +1,771 @@
+{
+  "locations": {
+    "Sarge": {
+      "name": "Sarge",
+      "averageRating": 4.5,
+      "topItem": "Tenders",
+      "imageLink": "placeholderurl"
+    },
+    "Elder": {
+      "name": "Elder",
+      "averageRating": 3.6,
+      "topItem": "Burders",
+      "imageLink": "placeholderurl2"
+    },
+    "Sargent": {
+      "name": "Sargent",
+      "averageRating": 0,
+      "topItem": "TBD",
+      "imageLink": "placeholder"
+    },
+    "Allison": {
+      "name": "Allison",
+      "averageRating": 0,
+      "topItem": "TBD",
+      "imageLink": "placeholder"
+    }
+  },
+  "items": {
+    "2b8-9-4206-9fdf-00208769e96ab826c0": {
+      "name": "Tenders",
+      "description": "Chicken tenders",
+      "location": "Sarge",
+      "reviews": { "0": "", "1": "9fdf-00208769e96ab8b8-9-4206-9" }
+    },
+    "e96ab8b89fdf-00208769-9-4206-9": {
+      "name": "Ravioli",
+      "description": "Beef ravioli with cheese",
+      "location": "Sarge",
+      "reviews": {
+        "0": "",
+        "1": "fbdf-00208769e96ab8b8-9-4206-9",
+        "2": "e96abfbdf-002087698b8-9-4206-9"
+      }
+    },
+    "7f4c9f7e-5924-408b-8f4e-30c3d8568895": {
+      "name": "Scrambled Eggs",
+      "description": "Cooked to perfection.",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "81fbb02f-831e-4bf4-9092-9dc21ff266c6": {
+      "name": "Strawberry Chia Seed Pancakes",
+      "description": "Strawberry & chia seed pancakes",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "38368ae0-83f1-446b-b0e6-a4b0ae009626": {
+      "name": "Candied Bacon",
+      "description": "Candied pork bacon with brown sugar",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "3eb882d4-7634-4b18-a050-bc11a26ef684": {
+      "name": "Fried Hash Brown Patty",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "f0e859a7-9349-492e-951c-acb658d85532": {
+      "name": "Roasted Mushroom Mix",
+      "description": "Mushrooms with thyme, parsley and rosemary",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "4b694033-1315-45a9-baf6-3e07b593ca35": {
+      "name": "Vegan French Toast",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "e63ccbaa-81b4-452b-9d80-ca6d45a38e44": {
+      "name": "Cheesy Tofu Fajita Scramble",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "06e56154-6b03-480b-ab11-3a702c10c309": {
+      "name": "Beyond Meat Breakfast Sausage",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "0c62ea2d-9f65-4dbf-b214-6b1566393d25": {
+      "name": "Curry Roasted Cauliflower",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "a5f02bfb-7e94-418a-85bb-782b4dce289a": {
+      "name": "Chocolate Chip Scone",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "7c987970-595b-4dda-bd9a-28a5ed392d0d": {
+      "name": "Blueberry Muffins",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "f73e2b55-350d-4f82-ad91-78b4997a8376": {
+      "name": "Omelet Bar",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "54350fa5-f1b8-4f0d-8e47-30a7dc228e57": {
+      "name": "Eggs",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "88daa18d-7640-449c-802b-6c6704b1efb9": {
+      "name": "Egg Whites",
+      "description": "two egg whites made-to-order",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "bcb7073e-f854-496f-8ed7-8048df4a778a": {
+      "name": "Chopped Spinach",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "b36d7d06-7071-4201-9328-3e69aea469e1": {
+      "name": "Chopped Broccoli",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "19ed5282-e446-4151-9393-d71edecea4cc": {
+      "name": "Chopped Tomatoes",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "eafccf1e-6cf6-44d4-87d8-e403553d4781": {
+      "name": "Diced Onions",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "f60a35b8-5830-4645-b296-9c28c20fa160": {
+      "name": "Sliced Mushrooms",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "82d1bf65-804c-4b08-87d0-614dba430b35": {
+      "name": "Chopped Green Bell Pepper",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "42f0ff7f-b791-4ec5-99f7-3b4627054f20": {
+      "name": "Shredded Sharp Cheddar Cheese",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "37b0af29-789f-49ff-b647-326935f156f2": {
+      "name": "Crumbled Feta Cheese",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "fdcaf259-cdae-416c-a79f-9c88d11eedfd": {
+      "name": "Diced Ham",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "4031c077-5167-4f1f-8091-468b4241cafc": {
+      "name": "Pork Sausage Link",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "e98cbb14-3e28-4b33-8b08-222f0a93715c": {
+      "name": "Diced Bacon",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "b3bc53ff-ac38-4af8-acf7-712be737b385": {
+      "name": "Low Fat Vanilla Yogurt",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "3ee149b5-38e6-4eb9-8be9-f74edbb2e356": {
+      "name": "Yogurt, Strawberry, Lite, Yoplait, 6 oz",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "b5fba66d-9223-4e3b-b695-ca80340ecc16": {
+      "name": "2% Greek Plain Yogurt",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "168bc988-352d-4499-8fd9-6311d90a3252": {
+      "name": "Cubed Pineapple",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "06d268a7-b0ad-4780-ba8b-8e1236154561": {
+      "name": "Cubed Cantaloupe",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "b42c0024-74cf-4e4e-9dc5-3f36af269cc8": {
+      "name": "Cubed Honeydew",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "21f907d4-7b7e-4b78-8e61-5bf1ee05e0ba": {
+      "name": "Banana",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "e9414839-4d29-459e-b31a-023c2ebe43c2": {
+      "name": "Grapefruit",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "4a28f67c-3e2f-40fa-920d-4ec0ff315b51": {
+      "name": "Granny Smith Apple",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "5662fc7a-f720-4f27-b983-ee8f57e05eea": {
+      "name": "Orange",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "96281d87-9c22-4f8c-8401-ee11f9cc04bb": {
+      "name": "Oats 'n Honey Granola",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "46d3f67e-14bc-4b6c-b542-809c1e3c9649": {
+      "name": "Red Seedless Grapes",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "d524c049-57e4-4de1-bd16-ec98a8893b01": {
+      "name": "Green Seedless Grapes",
+      "description": "",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "e2668d9f-a969-49c6-819d-09accfbbb8a8": {
+      "name": "Chocolate Oatmeal",
+      "description": "Chocolate Lover's Oatmeal",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "0ccec8e0-d9ee-4fac-a616-f9b86101c3e8": {
+      "name": "Steel Cut Oatmeal",
+      "description": "A classsic hot breakfast cereal",
+      "location": "Sargent",
+      "reviews": { "0": "" }
+    },
+    "caaf8abf-d687-4818-a88d-6b837e88e679": {
+      "name": "Scrambled Eggs",
+      "description": "Cooked to perfection.",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "0207a16f-4ff3-41ce-b6dd-da8d0d6bfcfc": {
+      "name": "Trix Pancakes",
+      "description": "Trix are for kids! Sweet Trix cereal pancakes topped with vanilla icing",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "9241944d-7f26-432e-807d-4ddaba9d84b1": {
+      "name": "Sausage Link",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "f701bd3f-acbe-4adc-abda-b38b5b340f75": {
+      "name": "Parmesan Potato Wedges",
+      "description": "Crispy Parmesan Potato Wedges",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e2e3978f-8b21-4f27-b961-eed2b649a1bd": {
+      "name": "Sauteed Spinach",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "bc0dd88b-ea87-45ae-89cf-eed57d87b71e": {
+      "name": "Everything Bagel Avocado Toast",
+      "description": "Crunchy bagel with avocado, olive oil drizzle and everything but the bagel seasoning",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "110e7a95-4bdc-4134-a6bd-5004033ecff8": {
+      "name": "Tofu Scramble, Salsa",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "acea9718-fbbb-46c6-aa7a-67a47a8bbaa8": {
+      "name": "Mexican Red Rice",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "f04a5cd3-9508-454b-9532-1f46e20ca29d": {
+      "name": "Cubed Cantaloupe",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "00803d30-e748-489e-a960-5aa8208ac05b": {
+      "name": "Cubed Pineapple",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "fed1177a-1587-4f19-8c57-ff444dc3a4aa": {
+      "name": "2% Greek Plain Yogurt",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c987fb93-75c7-4d31-bf2e-29dfec7c69fc": {
+      "name": "Low Fat Vanilla Yogurt",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "ceba509a-4609-4bc8-bbfd-28125662df38": {
+      "name": "Cubed Honeydew",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "de91fd66-28a6-4a90-8ef1-ec028fce81c1": {
+      "name": "Low Fat Strawberry Yogurt",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "94a9ec4e-f996-4fbf-a4fc-2e1787091da1": {
+      "name": "Oats 'n Honey Granola",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "d9e2dcee-cc11-4f42-b1bb-49c3bf4a7987": {
+      "name": "Raisins",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "ed4d851b-da9b-43bb-8f9c-033bbb461f48": {
+      "name": "Light Cream Cheese",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "3c5e4fdc-d8ae-4b47-b985-d41db6806ac0": {
+      "name": "Sunflower Spread",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "a2ac1bd8-a4b0-4c53-8ddd-1c85c9eb3ee8": {
+      "name": "Grape Jelly",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e54edcc0-3211-44d4-aee0-295693776470": {
+      "name": "Strawberry Preserves",
+      "description": "Strawberry Preserves",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "4a8a00cb-4226-4622-a766-81d507568a18": {
+      "name": "Butter",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "fc7b3dbb-ccc6-4e97-a7e2-a6d5e190bbbd": {
+      "name": "strawberry cream cheese",
+      "description": "strawberry preserves blended in cream cheese",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "a9d8990a-721f-4ec6-b71b-8740bffbbeb1": {
+      "name": "Eggs",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "0521a7a0-3736-438d-bb1b-a547e4222cdc": {
+      "name": "Egg Whites",
+      "description": "two egg whites made-to-order",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "f4ece50b-cb0a-4a40-8bde-c45d0f179d15": {
+      "name": "Chopped Spinach",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "2323d201-51d8-4467-ae0f-00616c712e35": {
+      "name": "Chopped Broccoli",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "3f2e3eb7-8ed8-4635-8799-470e37f811a6": {
+      "name": "Shredded Sharp Cheddar Cheese",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "318cbc1e-97b7-4472-b5b2-43643ae5bdb0": {
+      "name": "Turkey Sausage Link",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "cced473f-d882-4cf6-b7fc-9c840c68b75c": {
+      "name": "Diced Ham",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "1df96b09-0d76-4d71-a3fe-9b49a5b3cad8": {
+      "name": "Chopped Green Bell Pepper",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "7c672672-ea52-4702-bbfd-55c7a5505ed3": {
+      "name": "Sliced Mushrooms",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c0e3d852-dce9-455d-99b0-24dd516ba944": {
+      "name": "Diced Onions",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "ce698f8e-f36f-47d9-b711-b6c75183df26": {
+      "name": "Chopped Tomatoes",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "7625b136-5fa9-4424-ac77-da5577623388": {
+      "name": "Chocolate Chip Scone",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "1f70b2ce-03cb-4646-a177-7824f756a64d": {
+      "name": "Blueberry Muffins",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "be229da5-1f64-4af0-8e6a-72f08e14cf15": {
+      "name": "English Muffin",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "256ec4a8-0910-4b99-80f9-8b1239160886": {
+      "name": "White Bread",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "cf293c7d-ac4c-49ee-a7d7-a24fd00c2774": {
+      "name": "Whole Wheat Bread",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "d76492d2-376c-46ab-9ce9-18836ca62b15": {
+      "name": "Plain Bagel",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c9c66b7b-6d8a-42f4-b5ad-53478f336c18": {
+      "name": "Cinnamon Raisin Bread",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c64938c2-6e72-46ba-9140-bb4f1eb456f3": {
+      "name": "Frosted Flakes",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "5bbeb477-e8a0-4121-9824-96a8d8ff72a4": {
+      "name": "Froot Loops",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c6bfc460-1e34-474c-9586-50956b5dc138": {
+      "name": "Cinnamon Toast Crunch",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "8b5e25ab-1ba4-414b-ad4c-3a909dc90c56": {
+      "name": "Raisin Bran",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "6bfeea87-e856-4d4d-acde-21962675c716": {
+      "name": "Special K",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "56bcde17-3241-452d-9b5c-128cb238b1ba": {
+      "name": "Banana",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "fccc05cb-9fb7-4ddd-80b2-139a77509725": {
+      "name": "Orange",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "2311fc80-d670-4bab-9491-07e7a8bd2ab7": {
+      "name": "Apple",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "94a86fc9-c402-44a0-ac24-6c8225185638": {
+      "name": "Rice Krispies",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c023ca83-4122-4b8c-9fbb-3453911d2b01": {
+      "name": "Cheerios",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "76da3a7b-a860-410e-ab9b-25229357c758": {
+      "name": "Lucky Charms",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "b8a63896-9e47-4bfd-8bfd-23b9ca92c375": {
+      "name": "Udi's Hamburger Bun",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "dcbe549a-e9e7-4867-950d-98f15acfe188": {
+      "name": "Udi's White Bread",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "5598f115-3fd1-4f7c-9dab-c223aad7bf17": {
+      "name": "Udi's Plain Bagel",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "38c04afb-a427-45f8-bd26-29c08c07d33f": {
+      "name": "Oatmeal",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "19e97199-9aa9-4ab6-9725-b43e72839d03": {
+      "name": "Pineapple Steel Cut Oatmeal",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e6e98db3-62f0-4b94-ad93-d22de88e2ba7": {
+      "name": "Orange Juice",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "37a5a9a9-9da1-45d0-acb1-17c3ab269396": {
+      "name": "Apple Juice",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e32d9376-9935-4f28-af38-d5ecb042afae": {
+      "name": "Cranberry Juice",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "63222ec9-4680-4b92-8917-5a72e725148d": {
+      "name": "Coffee",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "418a00f2-9069-467c-82bd-32ae3c999529": {
+      "name": "Decaf Coffee",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "35ec4b57-6e0a-40e8-bdbe-14f7333a8007": {
+      "name": "Hot Tea",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e473a44d-2743-4de6-94f0-f85ea3df5021": {
+      "name": "Mountain Berry Powerade",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "22139dfc-5490-4cc3-9898-10e007377f1e": {
+      "name": "Diet Coke",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "a1fd89fc-97eb-49d1-9b43-943a01c91af1": {
+      "name": "Lemonade",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e02ae094-e17c-433f-8097-7dd4129e5891": {
+      "name": "Coca-Cola",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "161e08b8-73ef-46a4-b573-bb140edabc3e": {
+      "name": "Sprite",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "ce893d40-d205-4ba6-916a-4bc36cc8624d": {
+      "name": "Barq's Root Beer",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "c8739b4d-412e-46e7-a7fb-c3e9516ec035": {
+      "name": "Sweet Iced Tea",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "8707a46b-aad4-431f-9e05-34b646603b8f": {
+      "name": "Sprite",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "b6f60e98-8cd7-470a-bf56-ecf539fe846d": {
+      "name": "Milk, Skim",
+      "description": "Nonfat",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "1f421778-c1fd-4999-9053-024b30846a5b": {
+      "name": "Milk, Lowfat, 1%",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "a4be863d-7b14-4948-bef8-a3bcd062123f": {
+      "name": "Chocolate Milk, Low Fat 1%",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "e6c815ca-6536-48d9-bf1d-e70da252de9b": {
+      "name": "Milk, Soy, Chocolate, 8 fl oz",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    },
+    "54e31fad-80ec-4737-895c-1880d32682c1": {
+      "name": "Milk, Soy, Vanilla, 8 fl oz",
+      "description": "",
+      "location": "Allison",
+      "reviews": { "0": "" }
+    }
+  },
+  "reviews": {
+    "9fdf-00208769e96ab8b8-9-4206-9": {
+      "author": "f-0020879fd69e96ab8b8-9-4206-9",
+      "text": "I love tenders",
+      "rating": 5,
+      "imageLink": "placeholderurl",
+      "likes": 0
+    },
+    "fbdf-00208769e96ab8b8-9-4206-9": {
+      "author": "f-0020879fd69e96ab8b8-9-4206-9",
+      "text": "I love pasta pasta",
+      "rating": 5,
+      "imageLink": "placeholderurl",
+      "likes": 0
+    },
+    "e96abfbdf-002087698b8-9-4206-9": {
+      "author": "f-0020879fd69e96ab8b8-9-4206-9",
+      "text": "I love pasta pasta even more but this pasta was terrible",
+      "rating": 2,
+      "imageLink": "placeholderurl",
+      "likes": 0
+    }
+  },
+  "users": {
+    "f-0020879fd69e96ab8b8-9-4206-9": {
+      "name": "test user",
+      "posts": {
+        "0": "",
+        "1": "9fdf-00208769e96ab8b8-9-4206-9",
+        "2": "fbdf-00208769e96ab8b8-9-4206-9",
+        "3": "e96abfbdf-002087698b8-9-4206-9"
+      },
+      "likedPosts": { "0": "", "1": "9fdf-00208769e96ab8b8-9-4206-9" }
+    }
+  }
+}
