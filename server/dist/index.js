@@ -149,13 +149,15 @@ const scrapeMeals = async (page) => {
     const mealsList = await page.$(".nav.nav-tabs");
     const mealElements = await (mealsList === null || mealsList === void 0 ? void 0 : mealsList.$$("a"));
     const meals = {};
-    for (const mealElement of mealElements) {
-        const meal = await mealElement.evaluate(e => e.textContent);
-        if (!meal) {
-            continue;
+    if (mealElements) {
+        for (const mealElement of mealElements) {
+            const meal = await mealElement.evaluate(e => e.textContent);
+            if (!meal) {
+                continue;
+            }
+            await mealElement.evaluate(e => e.click());
+            meals[meal] = await scrapeCategories(page);
         }
-        await mealElement.evaluate(e => e.click());
-        meals[meal] = await scrapeCategories(page);
     }
     return meals;
 };

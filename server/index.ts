@@ -188,16 +188,18 @@ const scrapeMeals = async(page: Page) => {
   const mealElements = await mealsList?.$$("a");
   
   const meals = {};
-  for (const mealElement of mealElements) {
-    const meal = await mealElement.evaluate(e => e.textContent);
+  if (mealElements) {
+    for (const mealElement of mealElements) {
+      const meal = await mealElement.evaluate(e => e.textContent);
 
-    if (!meal) {
-      continue;
+      if (!meal) {
+        continue;
+      }
+
+      await mealElement.evaluate(e => e.click());
+
+      meals[meal] = await scrapeCategories(page);
     }
-
-    await mealElement.evaluate(e => e.click());
-
-    meals[meal] = await scrapeCategories(page);
   }
 
   return meals;
