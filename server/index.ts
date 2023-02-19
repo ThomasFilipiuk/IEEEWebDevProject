@@ -180,6 +180,29 @@ const scrapeCategories = async(page: Page) => {
   return await mapCategories(categories, page);
 }
 
+const scrapeMeals = async(page: Page) => {
+  await page.waitForSelector(".nav.nav-tabs");
+
+  const mealsList = await page.$(".nav.nav-tabs");
+
+  const mealElements = await mealsList?.$$("a");
+  
+  const meals = {};
+  for (const mealElement of mealElements) {
+    const meal = await mealElement.evaluate(e => e.textContent);
+
+    if (!meal) {
+      continue;
+    }
+
+    await mealElement.evaluate(e => e.click());
+
+    meals[meal] = await scrapeCategories(page);
+  }
+
+  return meals;
+}
+
 const scrapeDiningHallInfo = async() => {
   const browser = await puppeteer.launch({headless: false})
 
@@ -189,7 +212,7 @@ const scrapeDiningHallInfo = async() => {
 
   const diningHallInfo = [];
   const diningHallNames = ["allison", "sargent", "plex-west", "plex-east", "elder"];
-  diningHallInfo.push(await scrapeCategories(page)); // allison
+  diningHallInfo.push(await scrapeMeals(page)); // allison
 
   page.click("#dropdown-grouped__BV_toggle_");
   page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
@@ -197,7 +220,7 @@ const scrapeDiningHallInfo = async() => {
   for (let i = 1; i <= 4; i++) {
     // @ts-ignore
     dropdownItems[i].evaluate(e => e.click());
-    diningHallInfo.push(await scrapeCategories(page));
+    diningHallInfo.push(await scrapeMeals(page));
   }
 
   for (let i = 0; i < diningHallNames.length; i++) {
