@@ -8,7 +8,7 @@ interface MenuItem {
     description: string;
     attributes: Attribute[];
     portion: string;
-    calories: number;
+    calories: number | undefined;
     nutritionalInfo: NutritionalInfo;
 }
 
@@ -26,3 +26,5 @@ interface Nutrient {
     name: string;
     value: string;
 }
+
+export { Category, MenuItem, Attribute, NutritionalInfo, Nutrient }

@@ -10,7 +10,7 @@ import ItemPage from './pages/ItemPage';
 
 const App = () => {
   const data = {
-    "locations": {
+    "locations":  {
       "Sarge": {
         "name": "Sarge",
         "averageRating": 4.5,
