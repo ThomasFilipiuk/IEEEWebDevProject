@@ -10,6 +10,17 @@ const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const node_cron_1 = __importDefault(require("node-cron"));
 const fs_1 = __importDefault(require("fs"));
 dotenv_1.default.config();
+// connect to DB
+const { MongoClient } = require('mongodb');
+const uri = 'mongodb+srv://DiningAppIEEE:DineOnCampus123@cluster0\
+.i6moqlo.mongodb.net/?retryWrites=true&w=majority';
+const client = new MongoClient(uri);
+try {
+    client.connect();
+}
+catch (e) {
+    console.error(e);
+}
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 const mapNutritionalInfo = async (nutritionalInfoElements) => {
@@ -104,17 +115,31 @@ const mapMenuItems = async (menuItemsElements, page) => {
         // @ts-ignore
         await (nutritionalInfoButton === null || nutritionalInfoButton === void 0 ? void 0 : nutritionalInfoButton.evaluate(e => e.click()));
         await page.waitForSelector(".modal-content");
-        return {
+        const return_ob = {
             name: menuItemNameTrimmed,
             description: menuItemDescription,
             attributes: attributes,
             portion: portion,
             calories: calories,
+            //diningHall : diningHall,
             nutritionalInfo: { ingredients: [], nutrients: [] }
         };
+        async function db_input(ob) {
+            try {
+                let response;
+                //const dininghall = ob.diningHall;
+                const dininghall = 'plex-west';
+                response = await client.db('daily_menu').collection(dininghall).insertOne(return_ob);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+        //await db_input(return_ob);
+        return return_ob;
     }));
 };
-const mapCategories = async (categoriesElements, page) => {
+const mapCategories = async (categoriesElements, page, diningHall, meal) => {
     return await Promise.all(categoriesElements.map(async (categoryElement) => {
         let categoryName = await categoryElement.$eval('caption', e => e.textContent);
         if (!categoryName) {
@@ -131,6 +156,9 @@ const mapCategories = async (categoriesElements, page) => {
         await page.waitForSelector("#nutritional-modal-61f477db8f3eb63e48343c03-63e888d4c625af07221997ca___BV_modal_outer_", { hidden: true });
         for (const menuItem of menuItems) {
             menuItem.nutritionalInfo = nutritionalInfoObj[menuItem.name];
+            menuItem.diningHall = diningHall;
+            menuItem.mealTime = meal;
+            // insert into db here
         }
         return {
             name: categoryName,
@@ -138,13 +166,13 @@ const mapCategories = async (categoriesElements, page) => {
         };
     }));
 };
-const scrapeCategories = async (page) => {
+const scrapeCategories = async (page, diningHall, meal) => {
     const querySelector = '.table.b-table.menu-items.b-table-caption-top.b-table-stacked-md';
     await page.waitForSelector(querySelector);
     const categories = await page.$$(querySelector);
-    return await mapCategories(categories, page);
+    return await mapCategories(categories, page, diningHall, meal);
 };
-const scrapeMeals = async (page) => {
+const scrapeMeals = async (page, diningHall) => {
     await page.waitForSelector(".nav.nav-tabs");
     const mealsList = await page.$(".nav.nav-tabs");
     const mealElements = await (mealsList === null || mealsList === void 0 ? void 0 : mealsList.$$("a"));
@@ -156,7 +184,8 @@ const scrapeMeals = async (page) => {
                 continue;
             }
             await mealElement.evaluate(e => e.click());
-            meals[meal] = await scrapeCategories(page);
+            meals[meal] = await scrapeCategories(page, diningHall, meal);
+            // don't need to store and return meals obj anymore
         }
     }
     return meals;
@@ -167,14 +196,14 @@ const scrapeDiningHallInfo = async () => {
     await page.goto('https://dineoncampus.com/northwestern/whats-on-the-menu', { timeout: 0 });
     const diningHallInfo = [];
     const diningHallNames = ["allison", "sargent", "plex-west", "plex-east", "elder"];
-    diningHallInfo.push(await scrapeMeals(page)); // allison
+    diningHallInfo.push(await scrapeMeals(page, "allison"));
     page.click("#dropdown-grouped__BV_toggle_");
     page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
     const dropdownItems = await page.$$("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
     for (let i = 1; i <= 4; i++) {
         // @ts-ignore
         dropdownItems[i].evaluate(e => e.click());
-        diningHallInfo.push(await scrapeMeals(page));
+        diningHallInfo.push(await scrapeMeals(page, diningHallNames[i]));
     }
     for (let i = 0; i < diningHallNames.length; i++) {
         fs_1.default.writeFile(`${diningHallNames[i]}.json`, JSON.stringify(diningHallInfo[i], null, 2), err => {

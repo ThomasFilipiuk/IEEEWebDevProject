@@ -10,6 +10,8 @@ interface MenuItem {
     portion: string;
     calories: number | undefined;
     nutritionalInfo: NutritionalInfo;
+    diningHall: string;
+    mealTime: string;
 }
 
 interface Attribute {
