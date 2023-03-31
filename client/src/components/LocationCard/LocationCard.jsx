@@ -11,9 +11,9 @@ const LocationCard = ({locationData}) => {
         />
       <Card.Body>
         <Card.Title>{locationData.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{locationData.averageRating}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">Rating: {locationData.averageRating}</Card.Subtitle>
         <Card.Text>
-          {locationData.topItem}
+          Top item: {locationData.topItem}
         </Card.Text>        
       </Card.Body>
     </Card>
