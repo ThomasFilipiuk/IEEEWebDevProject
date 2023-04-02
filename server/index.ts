@@ -21,6 +21,28 @@ catch (e) {
     console.error(e);
 } 
 
+async function db_input(ob:MenuItem) {
+  try {
+    let response:any;
+    //const dininghall = ob.diningHall;
+    const dininghall = ob.diningHall;
+    const item_name = ob.name;
+    const collection = client.db('daily_menu').collection(dininghall);
+
+    //if item with same name already exists in the db, don't add it
+    response = await client.db('daily_menu').collection(dininghall).updateOne(
+      {name : item_name}, 
+      {$setOnInsert: ob}, //setOnInsert only works if an insert occurs
+      {upsert: true}
+    )
+    console.log(ob);
+  }
+
+  catch(e) {
+    console.log(e);
+  }
+}
+
 const app: Express = express();
 const port = process.env.PORT;
 
@@ -145,23 +167,8 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
       attributes: attributes,
       portion: portion,
       calories: calories,
-      //diningHall : diningHall,
       nutritionalInfo: {ingredients: [], nutrients: []}
     };
-    
-    async function db_input(ob:MenuItem) {
-      try {
-        let response:any;
-        //const dininghall = ob.diningHall;
-        const dininghall = 'plex-west';
-        response = await client.db('daily_menu').collection(dininghall).insertOne(return_ob);
-      }
-      catch(e) {
-        console.log(e);
-      }
-    }
-
-    //await db_input(return_ob);
 
     return return_ob;
 
@@ -194,9 +201,11 @@ const mapCategories = async(categoriesElements: ElementHandle[], page: Page, din
       menuItem.nutritionalInfo = nutritionalInfoObj[menuItem.name as keyof typeof nutritionalInfoObj];
       menuItem.diningHall = diningHall;
       menuItem.mealTime = meal;
-
-      // insert into db here
+      //insert to the db here
+      await db_input(menuItem);
+      console.log(menuItem);
     }
+
 
     return {
       name: categoryName,
@@ -270,10 +279,10 @@ const scrapeDiningHallInfo = async() => {
   }
 }
 
-scrapeDiningHallInfo();
+//scrapeDiningHallInfo();
 
 // scheduled to run at 12:01 AM CST
-const scrapeJob = cron.schedule("0 1 0 * * *", () => {
+const scrapeJob = cron.schedule("1 0 * * *", () => {
   scrapeDiningHallInfo();
 }, {
   timezone: "America/Chicago"
@@ -290,13 +299,19 @@ app.get('/dining-hall/:diningHallName', (req, res) => {
       return;
     }
 
-    res.json(JSON.parse(data.toString()));
+    //query the mongo database here
+    
   });
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(fs.readFileSync('docs.json').toString())));
 
 scrapeJob.start();
+console.log('scrape task scheduled');
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
+app.get('/dining-hall/:reviews', (req, res) => {
+
+})
