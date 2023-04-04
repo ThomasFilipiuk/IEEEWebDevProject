@@ -8,7 +8,7 @@ function getCollectionObject(collection: string) {
 }
 
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.insertOne/#mongodb-method-db.collection.insertOne
-async function insertOne(collection: string, document) {
+async function insertOne(collection: string, document: any) {
   try {
     const collectionObject = getCollectionObject(collection);
 
@@ -22,15 +22,14 @@ async function insertOne(collection: string, document) {
 }
 
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find
-async function find(collection: string, query, projection, options) {
+async function find(collection: string, query={}, projection?:any, options?:any) {
   try {
     const collectionObject = getCollectionObject(collection);
-
+    
     const response = await collectionObject.find(
-      query,
-      projection,
-      options
-    );
+      query
+    ).toArray();
+    console.log("response in find function:",response);
 
     return response;
   }
@@ -72,4 +71,4 @@ async function deleteOne(collection: string, filter) {
 }
 
 
-export { insertOne, find, updateOne, deleteOne }
+export { insertOne, find, updateOne, deleteOne}

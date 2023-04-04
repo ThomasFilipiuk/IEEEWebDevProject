@@ -23,10 +23,11 @@ async function insertOne(collection, document) {
 }
 exports.insertOne = insertOne;
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find
-async function find(collection, query, projection, options) {
+async function find(collection, query = {}, projection, options) {
     try {
         const collectionObject = getCollectionObject(collection);
-        const response = await collectionObject.find(query, projection, options);
+        const response = await collectionObject.find(query).toArray();
+        console.log("response in find function:", response);
         return response;
     }
     catch (e) {
