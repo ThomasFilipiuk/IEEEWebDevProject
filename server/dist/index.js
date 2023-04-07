@@ -9,12 +9,14 @@ const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const scrape_1 = __importDefault(require("./src/utils/scrape"));
 const fs_1 = __importDefault(require("fs"));
 const utils_1 = require("./src/database/utils");
+const cors_1 = __importDefault(require("cors"));
 var bodyParser = require('body-parser');
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 const db_name = process.env.MONGODB_DB_NAME;
 app.use(bodyParser.json());
+app.use((0, cors_1.default)({ origin: '*', credentials: true }));
 app.get('/dining-hall/:diningHallName', (req, res) => {
     const diningHall = req.params.diningHallName;
     fs_1.default.readFile(`${diningHall}.json`, async (err, data) => {

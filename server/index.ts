@@ -5,6 +5,8 @@ import scrapeJob from './src/utils/scrape';
 import fs from 'fs';
 import databaseClient from './src/database/client';
 import {insertOne, deleteOne, find } from './src/database/utils';
+import cors from 'cors';
+
 var bodyParser = require('body-parser');
 
 dotenv.config();
@@ -13,6 +15,7 @@ const app: Express = express();
 const port = process.env.PORT;
 const db_name = process.env.MONGODB_DB_NAME;
 app.use(bodyParser.json());
+app.use(cors({origin: '*', credentials: true}));
 
 
 app.get('/dining-hall/:diningHallName', (req, res) => {
