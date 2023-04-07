@@ -64,3 +64,24 @@ app.get('/reviews/:diningHallName', async (req,res)=> {
   }
 
 })
+
+//send the metadata for a dining hall
+app.get('/metaData/:diningHallName', (req,res) => {
+  try{
+    const diningHall = req.params.diningHallName;
+    //topItem, avgRating = await find_top_item(diningHall);
+    const topItem= "top item";
+    const avgRating= "avg rating";
+    const imageLink = "image link";
+    //res.send("hello");
+    res.json({"diningHall":diningHall,
+              "topItem": topItem,
+              "avgRating":avgRating,
+              "imageLink":imageLink
+  });
+  }
+  catch(err:any){
+    res.status(500).json({"error": err.message});
+  }})
+
+//implement databases for daily items
