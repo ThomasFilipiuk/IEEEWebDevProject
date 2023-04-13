@@ -6,6 +6,7 @@ import fs from 'fs';
 import databaseClient from './src/database/client';
 import {insertOne, deleteOne, find } from './src/database/utils';
 import cors from 'cors';
+import { getData } from '.';
 
 var bodyParser = require('body-parser');
 
