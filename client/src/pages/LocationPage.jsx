@@ -5,6 +5,7 @@ import ItemCard from '../components/ItemCard/ItemCard';
 import { Link } from 'react-router-dom';
 
 const LocationPage = ({ locationData, itemsData, reviewsData }) => {
+  console.log(itemsData);
   return (
     <div className="App">
       <Container fluid="md">
