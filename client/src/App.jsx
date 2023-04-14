@@ -5,10 +5,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LocationPage from './pages/LocationPage';
 import ItemPage from './pages/ItemPage';
 import { getData } from '../utilities/apiUtilities';
+import { useEffect, useState } from 'react';
 
 
 const App = () => {
-  const data = getData('dining-hall/allison');
+  let [data, setData] = useState(null);
+  useEffect(() => {getData('dining-hall/allison').then(response => {
+    console.log(response);
+    setData(response);
+  }
+  );}, [])
   console.log(data);
   // const data = {"locations": {
   //   "Sarge": {
