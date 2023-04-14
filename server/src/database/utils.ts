@@ -29,7 +29,6 @@ async function find(collection: string, query={}, projection?:any, options?:any)
     const response = await collectionObject.find(
       query
     ).toArray();
-    console.log("response in find function:",response);
 
     return response;
   }
@@ -57,11 +56,11 @@ async function updateOne(collection: string, filter, update, options) {
 }
 
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteOne/#mongodb-method-db.collection.deleteOne
-async function deleteOne(collection: string, filter) {
+async function deleteMany(collection: string, filter:any) {
   try {
     const collectionObject = getCollectionObject(collection);
 
-    const response = await collectionObject.deleteOne(filter);
+    const response = await collectionObject.deleteMany(filter);
 
     return response;
   }
@@ -69,6 +68,39 @@ async function deleteOne(collection: string, filter) {
     console.error(e);
   }
 }
+//for a given dining hall, find the top and avg rating
+async function findAverageRating(collection: string, diningHall: string) {
+  const collectionObject = getCollectionObject(collection);
+  const avg_arr = await collectionObject.aggregate(
+    [
+      {
+        $group: {
+          _id: "$diningHall",
+          AverageRating: { $avg: "$rating" }
+        }
+      }
+    ]).toArray()
+  
+  const arr_val = avg_arr.filter((el:any) => {
+    return el._id == diningHall;
+  })
+  //console.log("average rating:",arr_val,avg_arr);
+  return arr_val[0].AverageRating;
+}
 
+async function findTopRating(collection: string, Hall: string) {
+  try {
+    const collectionObject = getCollectionObject(collection);
+    const find_res = await collectionObject.find({"diningHall":Hall});
+    const top_object = await find_res.sort({rating:-1}).limit(1).toArray();
+    //console.log(find_res, top_object);
+    const top_rating = top_object[0];
+    return top_rating;
+  }
+  catch(err:any){
+    console.log(err.message);
+  }
 
-export { insertOne, find, updateOne, deleteOne}
+}
+
+export { insertOne, find, updateOne, deleteMany, findAverageRating, findTopRating}

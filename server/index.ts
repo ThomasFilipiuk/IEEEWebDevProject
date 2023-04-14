@@ -4,7 +4,7 @@ import swaggerUi from 'swagger-ui-express';
 import scrapeJob from './src/utils/scrape';
 import fs from 'fs';
 import databaseClient from './src/database/client';
-import {insertOne, deleteOne, find } from './src/database/utils';
+import {insertOne, deleteOne, find, findTopRating, findAverageRating } from './src/database/utils';
 import cors from 'cors';
 
 var bodyParser = require('body-parser');
@@ -66,14 +66,13 @@ app.get('/reviews/:diningHallName', async (req,res)=> {
 })
 
 //send the metadata for a dining hall
-app.get('/metaData/:diningHallName', (req,res) => {
+app.get('/metaData/:diningHallName', async (req,res) => {
   try{
     const diningHall = req.params.diningHallName;
     //topItem, avgRating = await find_top_item(diningHall);
-    const topItem= "top item";
-    const avgRating= "avg rating";
+    const topItem= await findTopRating("reviews",diningHall);
+    const avgRating= await findAverageRating("reviews",diningHall);
     const imageLink = "image link";
-    //res.send("hello");
     res.json({"diningHall":diningHall,
               "topItem": topItem,
               "avgRating":avgRating,
