@@ -17,20 +17,10 @@ const port = process.env.PORT;
 const db_name = process.env.MONGODB_DB_NAME;
 app.use(bodyParser.json());
 app.use((0, cors_1.default)({ origin: '*', credentials: true }));
-app.get('/dining-hall/:diningHallName', (req, res) => {
+app.get('/dining-hall/:diningHallName', async (req, res) => {
     const diningHall = req.params.diningHallName;
-    fs_1.default.readFile(`${diningHall}.json`, async (err, data) => {
-        if (err) {
-            res.status(404).json({ error: "dining hall not found" });
-            return;
-        }
-        if (data.length === 0) {
-            res.status(404).json({ error: "dining hall not found" });
-            return;
-        }
-        const result = await (0, utils_1.find)(diningHall, { "diningHall": req.params.diningHallName });
-        res.send(result);
-    });
+    const result = await (0, utils_1.find)(diningHall, { "diningHall": req.params.diningHallName });
+    res.send(result);
 });
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(JSON.parse(fs_1.default.readFileSync('docs.json').toString())));
 scrape_1.default.start();

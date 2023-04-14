@@ -18,21 +18,12 @@ app.use(bodyParser.json());
 app.use(cors({origin: '*', credentials: true}));
 
 
-app.get('/dining-hall/:diningHallName', (req, res) => {
+app.get('/dining-hall/:diningHallName', async(req, res) => {
   const diningHall = req.params.diningHallName
-  fs.readFile(`${diningHall}.json`, async (err, data) => {
-    if (err) {
-      res.status(404).json({ error: "dining hall not found" });
-      return;
-    }
-    if (data.length === 0) {
-      res.status(404).json({ error: "dining hall not found" });
-      return;
-    }
-    const result = await find(diningHall, {"diningHall" : req.params.diningHallName});
-    res.send(result);
     
-  });
+  const result = await find(diningHall, {"diningHall" : req.params.diningHallName});
+  res.send(result);
+
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(fs.readFileSync('docs.json').toString())));
