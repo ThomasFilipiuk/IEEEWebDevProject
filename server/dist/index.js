@@ -59,14 +59,13 @@ app.get('/reviews/:diningHallName', async (req, res) => {
     }
 });
 //send the metadata for a dining hall
-app.get('/metaData/:diningHallName', (req, res) => {
+app.get('/metaData/:diningHallName', async (req, res) => {
     try {
         const diningHall = req.params.diningHallName;
         //topItem, avgRating = await find_top_item(diningHall);
-        const topItem = "top item";
-        const avgRating = "avg rating";
+        const topItem = await (0, utils_1.findTopRating)("reviews", diningHall);
+        const avgRating = await (0, utils_1.findAverageRating)("reviews", diningHall);
         const imageLink = "image link";
-        //res.send("hello");
         res.json({ "diningHall": diningHall,
             "topItem": topItem,
             "avgRating": avgRating,
