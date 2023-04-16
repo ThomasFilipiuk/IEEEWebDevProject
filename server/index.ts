@@ -6,6 +6,8 @@ import fs from 'fs';
 import databaseClient from './src/database/client';
 import {insertOne, deleteOne, find, findTopRating, findAverageRating } from './src/database/utils';
 import cors from 'cors';
+import { ObjectId } from "mongodb";
+import { ReviewsQuery } from './interfaces/queries.interfaces';
 
 var bodyParser = require('body-parser');
 
@@ -44,17 +46,40 @@ app.post('/reviews', async (req, res) => {
     res.status(500).json({ "error": err.message });
 }})
 
-//retrieve all the reviews for a dininghall from the database
-app.get('/reviews/:diningHallName', async (req,res)=> {
-  try {
-    const result = await find('reviews',{"diningHall" : req.params.diningHallName});
-    res.send(result);
-  }
-  catch(err:any){
-    res.status(500).json({ "error": err.message });
-  }
+// //retrieve all the reviews for a dininghall from the database
+// app.get('/reviews/:diningHallName', async (req,res)=> {
+//   try {
+//     const result = await find('reviews',{"diningHall" : req.params.diningHallName});
+//     res.send(result);
+//   }
+//   catch(err:any){
+//     res.status(500).json({ "error": err.message });
+//   }
 
-})
+// });
+
+// retrieve reviews that match with a specific query
+app.get("/reviews", async(req, res) => {
+  try {
+    const query: ReviewsQuery = {};
+    if (req.query._id) {
+      query._id = new ObjectId(req.query._id as string);
+    }
+    if (req.query.itemID) {
+      query.itemID = new ObjectId(req.query.itemID as string);
+    }
+    if (req.query.diningHall) {
+      query.diningHall = req.query.diningHall as string;
+    }
+
+    const response = await find("reviews", query);
+
+    res.json(response);
+  }
+  catch (err: any) {
+    res.status(500).json({"error": err.message});
+  }
+});
 
 //send the metadata for a dining hall
 app.get('/metaData/:diningHallName', async (req,res) => {

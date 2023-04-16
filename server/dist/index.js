@@ -10,6 +10,7 @@ const scrape_1 = __importDefault(require("./src/utils/scrape"));
 const fs_1 = __importDefault(require("fs"));
 const utils_1 = require("./src/database/utils");
 const cors_1 = __importDefault(require("cors"));
+const mongodb_1 = require("mongodb");
 var bodyParser = require('body-parser');
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -38,11 +39,31 @@ app.post('/reviews', async (req, res) => {
         res.status(500).json({ "error": err.message });
     }
 });
-//retrieve all the reviews for a dininghall from the database
-app.get('/reviews/:diningHallName', async (req, res) => {
+// //retrieve all the reviews for a dininghall from the database
+// app.get('/reviews/:diningHallName', async (req,res)=> {
+//   try {
+//     const result = await find('reviews',{"diningHall" : req.params.diningHallName});
+//     res.send(result);
+//   }
+//   catch(err:any){
+//     res.status(500).json({ "error": err.message });
+//   }
+// });
+// retrieve reviews that match with a specific query
+app.get("/reviews", async (req, res) => {
     try {
-        const result = await (0, utils_1.find)('reviews', { "diningHall": req.params.diningHallName });
-        res.send(result);
+        const query = {};
+        if (req.query._id) {
+            query._id = new mongodb_1.ObjectId(req.query._id);
+        }
+        if (req.query.itemID) {
+            query.itemID = new mongodb_1.ObjectId(req.query.itemID);
+        }
+        if (req.query.diningHall) {
+            query.diningHall = req.query.diningHall;
+        }
+        const response = await (0, utils_1.find)("reviews", query);
+        res.json(response);
     }
     catch (err) {
         res.status(500).json({ "error": err.message });
