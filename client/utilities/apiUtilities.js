@@ -1,9 +1,9 @@
 export async function getData(query) {
     try {
-      const response = await fetch(`http://localhost:3000/${query}`, {'headers': {'Content-type': 'application/json'}});
-      const contentType = response.headers.get('content-type');  
+      // console.log(`query: http://localhost:3000/${query}`);
+      const response = await fetch(`http://localhost:3000/${query.toLowerCase()}`, {'headers': {'Content-type': 'application/json'}});      
+      const contentType = response.headers.get('content-type');      
       const json = await response.json();
-      console.log(json);
       return json;
     } catch (error) {
       console.log(error);

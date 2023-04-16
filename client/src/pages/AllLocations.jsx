@@ -6,7 +6,7 @@ import LocationCard from '../components/LocationCard/LocationCard';
 import AppNav from '../components/AppNav/AppNav';
 import Filter from '../components/Dropdown/Dropdown';
 
-const AllLocations = ({ data }) => {
+const AllLocations = ({ data }) => {  
   return (
     <div className="App">
       <AppNav></AppNav>
@@ -15,7 +15,7 @@ const AllLocations = ({ data }) => {
       </Filter>
       <Container fluid="md">
         <Row>
-          <Col>{Object.entries(data.locations).map(([key, value]) => (
+          <Col>{Object.entries(data).map(([key, value]) => (
             <Link key={value.name} to={`/${value.name}`} style={{"textDecoration": "none", "color": "black"}} >
               <LocationCard locationData={value} />
             </Link>))}</Col>

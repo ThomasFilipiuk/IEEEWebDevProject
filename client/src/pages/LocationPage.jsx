@@ -3,28 +3,32 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ItemCard from '../components/ItemCard/ItemCard';
 import { Link } from 'react-router-dom';
+import { getData } from '../../utilities/apiUtilities';
+import { useEffect, useState } from 'react';
 
-const LocationPage = ({ locationData, itemsData, reviewsData }) => {
-  console.log(itemsData);
+// const LocationPage = ({ locationData, itemsData, reviewsData, locationName }) => {
+const LocationPage = ({ locationName }) => {
+  let [data, setData] = useState(null);  
+  useEffect(() => {getData(`dining-hall/${locationName}`).then(response => {
+    // console.log(response);
+    setData(response);    
+  }
+  );}, [])
+  console.log(data);
   return (
     <div className="App">
       <Container fluid="md">
         <Row>
           <Col className='m-5'>
             <h1>
-              {locationData.name}
+              {locationName}
             </h1>
             <Link to="/">Return to locations</Link>
           </Col>
         </Row>
         <Row>
           <Col>
-            {itemsData.map(([key, value]) => (
-              <Link key={key} to={`/${key}`} style={{"textDecoration": "none", "color": "black"}}>
-                <ItemCard itemData={value} reviewsData={reviewsData}
-              // reviewData={reviewData.filter(([key, value]) => (value.reviews.includes(key)))}
-              // locationData={locationData}
-              /></Link>))}
+            {data ? data.map((item) => (<ItemCard itemData={item}/>)) : ''}
           </Col>
         </Row>
       </Container>
