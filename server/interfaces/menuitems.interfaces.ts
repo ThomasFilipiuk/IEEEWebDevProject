@@ -11,6 +11,7 @@ interface MenuItem {
     calories: number | undefined;
     nutritionalInfo: NutritionalInfo;
     diningHall: string;
+    category: string;
     mealTime: string;
 }
 

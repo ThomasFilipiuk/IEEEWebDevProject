@@ -137,6 +137,7 @@ const mapCategories = async (categoriesElements, page, diningHall, meal) => {
             menuItem.nutritionalInfo = nutritionalInfoObj[menuItem.name];
             menuItem.diningHall = diningHall;
             menuItem.mealTime = meal;
+            menuItem.category = categoryName;
             //insert to the db here
             await upsertMenuItem(menuItem);
             console.log(menuItem);
