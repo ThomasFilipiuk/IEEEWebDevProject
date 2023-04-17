@@ -1,4 +1,3 @@
-import fs from 'fs';
 import puppeteer, { ElementHandle, Page } from 'puppeteer';
 import { Category, MenuItem, Attribute, NutritionalInfo, Nutrient } from '../../interfaces/menuitems.interfaces';
 import cron from 'node-cron';
@@ -147,8 +146,8 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
   }));
 }
 
-const mapCategories = async(categoriesElements: ElementHandle[], page: Page, diningHall: string, meal: string): Promise<Category[]> => {
-  return await Promise.all(categoriesElements.map(async(categoryElement): Promise<Category> => {
+const mapCategories = async(categoriesElements: ElementHandle[], page: Page, diningHall: string, meal: string) => {
+  for (const categoryElement of categoriesElements) {
     let categoryName = await categoryElement.$eval('caption', e => e.textContent);
     if (!categoryName) {
       categoryName = "";
@@ -177,13 +176,7 @@ const mapCategories = async(categoriesElements: ElementHandle[], page: Page, din
       await upsertMenuItem(menuItem);
       console.log(menuItem);
     }
-
-
-    return {
-      name: categoryName,
-      menuItems: menuItems
-    };
-  }));
+  }
 }
 
 const scrapeCategories = async(page: Page, diningHall: string, meal: string) => {
@@ -193,7 +186,7 @@ const scrapeCategories = async(page: Page, diningHall: string, meal: string) => 
 
   const categories = await page.$$(querySelector);
   
-  return await mapCategories(categories, page, diningHall, meal);
+  await mapCategories(categories, page, diningHall, meal);
 }
 
 const scrapeMeals = async(page: Page, diningHall: string) => {
@@ -203,7 +196,6 @@ const scrapeMeals = async(page: Page, diningHall: string) => {
 
   const mealElements = await mealsList?.$$("a");
   
-  const meals = {};
   if (mealElements) {
     for (const mealElement of mealElements) {
       const meal = await mealElement.evaluate(e => e.textContent);
@@ -215,12 +207,10 @@ const scrapeMeals = async(page: Page, diningHall: string) => {
       await mealElement.evaluate(e => e.click());
 
       // @ts-ignore
-      meals[meal] = await scrapeCategories(page, diningHall, meal);
+      await scrapeCategories(page, diningHall, meal);
       // don't need to store and return meals obj anymore
     }
   }
-
-  return meals;
 }
 
 const scrapeDiningHallInfo = async() => {
@@ -230,9 +220,8 @@ const scrapeDiningHallInfo = async() => {
 
   await page.goto('https://dineoncampus.com/northwestern/whats-on-the-menu', {timeout: 0});
 
-  const diningHallInfo = [];
   const diningHallNames = ["allison", "sargent", "plex-west", "plex-east", "elder"];
-  diningHallInfo.push(await scrapeMeals(page, "allison"));
+  await scrapeMeals(page, "allison");
 
   page.click("#dropdown-grouped__BV_toggle_");
   page.waitForSelector("[aria-describedby=building_6113ef5ae82971150a5bf8ba]");
@@ -240,15 +229,7 @@ const scrapeDiningHallInfo = async() => {
   for (let i = 1; i <= 4; i++) {
     // @ts-ignore
     dropdownItems[i].evaluate(e => e.click());
-    diningHallInfo.push(await scrapeMeals(page, diningHallNames[i]));
-  }
-
-  for (let i = 0; i < diningHallNames.length; i++) {
-    fs.writeFile(`${diningHallNames[i]}.json`, JSON.stringify(diningHallInfo[i], null, 2), err => {
-      if (err) {
-        console.error(err);
-      }
-    });
+    await scrapeMeals(page, diningHallNames[i]);
   }
 }
 
