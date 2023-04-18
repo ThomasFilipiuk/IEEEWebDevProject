@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import AddReviewForm from '../components/AddReviewForm/AddReviewForm';
@@ -7,6 +7,14 @@ import Modal from 'react-bootstrap/Modal';
 
 const ItemPage = ({itemData, reviewsData}) => {
   const [show, setShow] = useState(false);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetchData(`http://localhost:3000/reviews?itemID=${id}`).then(response => {
+      ...
+    })
+  }, []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
