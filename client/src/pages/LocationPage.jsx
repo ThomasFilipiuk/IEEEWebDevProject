@@ -27,8 +27,12 @@ const LocationPage = ({ locationName }) => {
           </Col>
         </Row>
         <Row>
-          <Col>
-            {data ? data.map((item) => (<ItemCard itemData={item}/>)) : ''}
+          <Col>            
+            {data ? data.map((item) => (
+              <Link key={item._id} to={`/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
+                <ItemCard itemData={item}/>
+              </Link>
+              )) : ''}
           </Col>
         </Row>
       </Container>

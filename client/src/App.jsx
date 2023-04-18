@@ -36,12 +36,6 @@ const App = () => {
             element={
               <LocationPage 
                 locationName={value.name}
-                // locationData={value}                 
-                // itemsData={getData(`dining-halls/${value.name}`)}
-                // itemsData={Object.entries(data.items).filter(([k, v]) => (
-                //   v.location === value.name
-                // ))}
-                // reviewsData={data.reviews}
               />} 
           />))
         }    
