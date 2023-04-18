@@ -11,18 +11,18 @@ const getReviews = async (req, res) => {
         if (req.query._id) {
             query._id = new mongodb_1.ObjectId(req.query._id);
         }
-        if (req.query.itemID) {
-            query.itemID = new mongodb_1.ObjectId(req.query.itemID);
+        if (req.query.item_id) {
+            query.item_id = new mongodb_1.ObjectId(req.query.item_id);
         }
-        if (req.query.diningHall) {
-            query.diningHall = req.query.diningHall;
+        if (req.query.dining_hall) {
+            query.dining_hall = req.query.dining_hall;
         }
         const response = await (0, utils_1.find)("reviews", query);
         if (response) {
             for (const review of response) {
                 if (review.filename) {
                     const imageURL = await (0, utils_2.getFile)(review.filename);
-                    review.imageURL = imageURL;
+                    review.image_url = imageURL;
                     delete review.filename;
                 }
             }

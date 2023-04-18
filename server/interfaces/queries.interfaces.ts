@@ -2,8 +2,8 @@ import { ObjectId } from "mongodb";
 
 interface ReviewsQuery {
   _id?: ObjectId;
-  itemID?: ObjectId;
-  diningHall?: string;
+  item_id?: ObjectId;
+  dining_hall?: string;
   review?: string;
   rating?: number;
 };
