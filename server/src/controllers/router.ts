@@ -13,6 +13,6 @@ router.route("/dining-hall/:diningHallName")
 
 router.route("/reviews")
   .get(getReviews)
-  .post(upload.single("image"), postReview);
+  .post(upload.array("images"), postReview);
 
 export default router;

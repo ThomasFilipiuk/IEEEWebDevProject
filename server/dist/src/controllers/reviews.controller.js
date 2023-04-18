@@ -48,10 +48,12 @@ exports.getReviews = getReviews;
 const postReview = async (req, res) => {
     try {
         const review_ob = req.body;
-        if (req.file) {
-            const filename = await (0, utils_2.uploadFile)(req.file);
-            review_ob.filename = filename;
+        const filenames = [];
+        for (const file of req.files) {
+            // uploadFile returns filename of newly added s3 object
+            filenames.push(await (0, utils_2.uploadFile)(file));
         }
+        review_ob.filenames = filenames;
         const result = await (0, utils_1.insertOne)("reviews", review_ob);
         res.json(result);
     }

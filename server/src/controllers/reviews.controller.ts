@@ -54,10 +54,13 @@ const postReview = async(req: Request, res: Response) => {
   try {
     const review_ob = req.body;
 
-    if (req.file) {
-      const filename = await uploadFile(req.file);
-      review_ob.filename = filename;
+    const filenames = [];
+    for (const file of req.files as Express.Multer.File[]) {
+      // uploadFile returns filename of newly added s3 object
+      filenames.push(await uploadFile(file));
     }
+
+    review_ob.filenames = filenames;
 
     const result = await insertOne("reviews", review_ob);
     res.json(result);

@@ -11,24 +11,24 @@ export async function getData(query) {
     }
   };
 
-export async function postReviewData(endpoint, postData) {
-    try {
-      const response = await fetch(`http://localhost:3000/${endpoint}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      console.log('Review data has been posted successfully:', data);
-    } catch (error) {
-      console.error('Error posting review data:', error);
+export async function postData(endpoint, body) {
+  try {
+    const response = await fetch(`http://localhost:3000/${endpoint}`, {
+      method: 'POST',
+      // headers: {
+      //   'Content-Type': contentType
+      // },
+      body: body
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    
+    const data = await response.json();
+    console.log('Review data has been posted successfully:', data);
+  } catch (error) {
+    console.error('Error posting review data:', error);
   }
+}
   

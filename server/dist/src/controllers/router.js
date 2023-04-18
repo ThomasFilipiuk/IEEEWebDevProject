@@ -14,5 +14,5 @@ router.route("/dining-hall/:diningHallName")
     .get(dining_hall_controller_1.getDiningHall);
 router.route("/reviews")
     .get(reviews_controller_1.getReviews)
-    .post(upload.single("image"), reviews_controller_1.postReview);
+    .post(upload.array("images"), reviews_controller_1.postReview);
 exports.default = router;

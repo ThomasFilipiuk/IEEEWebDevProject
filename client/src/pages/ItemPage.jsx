@@ -58,7 +58,9 @@ const ItemPage = () => {
           <Modal.Title>Add a review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddReviewForm></AddReviewForm>
+          <AddReviewForm
+            id={id}
+          />
         </Modal.Body>        
       </Modal>
     </div>

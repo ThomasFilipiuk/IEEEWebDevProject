@@ -12,7 +12,7 @@ app.use((0, cors_1.default)({
     credentials: true
 }));
 app.use(express_1.default.json());
-app.use(express_1.default.urlencoded());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use("/", router_1.default);
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 exports.default = app;
