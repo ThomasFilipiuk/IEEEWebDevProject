@@ -38,21 +38,11 @@ const App = () => {
                 locationName={value.name}
               />} 
           />))
-        }    
-        {/* {Object.entries(data.items).map(([key, value]) => (
-          <Route 
-            path={`${key}`} 
-            key={`${key}`} 
-            element={
-              <ItemPage 
-                itemData={value} 
-                reviewsData={Object.entries(data.reviews).filter(([k, v]) => {
-                  return (         
-                    Object.values(value.reviews).includes(k)
-                  );
-              })} />}
-          />))
-        }        */}
+        }
+        <Route 
+          path={`/items/:locationName/:id`}
+          element={<ItemPage />}
+        />
       </Routes>
     </BrowserRouter>    
   );

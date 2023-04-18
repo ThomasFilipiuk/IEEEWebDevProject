@@ -29,7 +29,8 @@ const LocationPage = ({ locationName }) => {
         <Row>
           <Col>            
             {data ? data.map((item) => (
-              <Link key={item._id} to={`/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
+              // dining-hall/${locationName}?item_id=${item._id}
+              <Link key={item._id} to={`/items/${locationName.toLowerCase()}/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
                 <ItemCard itemData={item}/>
               </Link>
               )) : ''}

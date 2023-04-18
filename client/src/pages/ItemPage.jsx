@@ -1,35 +1,55 @@
 import { Link, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import AddReviewForm from '../components/AddReviewForm/AddReviewForm';
-
+import { getData } from '../../utilities/apiUtilities';
 import Modal from 'react-bootstrap/Modal';
 
-const ItemPage = ({itemData, reviewsData}) => {
+const ItemPage = () => {
   const [show, setShow] = useState(false);
-
-  const { id } = useParams();
-
+  const [itemData, setItemData] = useState(null);
+  const [reviewsData, setReviewsData] = useState(null);
+  const { locationName, id } = useParams();
+  console.log(id);
   useEffect(() => {
-    fetchData(`http://localhost:3000/reviews?itemID=${id}`).then(response => {
-      ...
-    })
+    getData(`reviews?item_id=${id}`).then(response => {
+      setReviewsData(response);
+      console.log('review data', response);
+    });
+    getData(`dining-hall/${locationName}?_id=${id}`).then(response => {
+      setItemData(response[0]);
+      console.log('item data', response);
+    });    
   }, []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <div className="m-5">
-      <h1>{itemData.name}</h1>
-      <p>{itemData.description}</p>
-      <div><Link to={`/${itemData.location}`}>Go back to {itemData.location}</Link></div>
-      {reviewsData.map(([key, value]) => (
-        <div key={key} className="m-5 p-3" style={{border: "1px solid black"}}>
-          <h2>Review written by {value.author}</h2>
-          <p>{value.rating} stars</p>
-          <p>{value.text}</p>
+    <div>
+    {itemData && reviewsData && (
+
+      <div className="m-5">
+        <h1>{itemData.name}</h1>
+        <p>{itemData.description}</p>
+        <div>
+          <Link to={`/${itemData.location}`}>
+            Go back to {itemData.location}
+          </Link>
         </div>
-      ))}
+        {reviewsData.map((review) => (
+          <div
+            key={review._id}
+            className="m-5 p-3"
+            style={{ border: "1px solid black" }}
+          >
+            <h2>Review written by anonymous author</h2>
+            <p>{review.rating} stars</p>
+            <p>{review.review}</p>
+          </div>
+        ))}
+      </div>
+    )} 
+      
       <Button variant="primary" onClick={handleShow}>
         Add a review
       </Button>
