@@ -82,9 +82,11 @@ exports.findAverageRating = findAverageRating;
 async function findTopRating(collection, Hall) {
     try {
         const collectionObject = getCollectionObject(collection);
-        const find_res = await collectionObject.find({ "diningHall": Hall });
+        const find_res = await collectionObject.find({ "dining_hall": Hall });
         const top_object = await find_res.sort({ rating: -1 }).limit(1).toArray();
-        //console.log(find_res, top_object);
+        if (top_object.length === 0) {
+            return null;
+        }
         const top_rating = top_object[0];
         return top_rating;
     }
