@@ -54,6 +54,10 @@ const postReview = async(req: Request, res: Response) => {
   try {
     const review_ob = req.body;
 
+    if (review_ob.item_id) {
+      review_ob.item_id = new ObjectId(review_ob.item_id);
+    }
+
     const filenames = [];
     for (const file of req.files as Express.Multer.File[]) {
       // uploadFile returns filename of newly added s3 object
