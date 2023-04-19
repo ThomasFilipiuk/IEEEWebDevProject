@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Rating from '@mui/material/Rating';
 import { useFormData } from '../../../utilities/useFormData';
 import { getData, postData } from '../../../utilities/apiUtilities';
 // import { executeCreateReviewDocument } from '../../../utilities/mongoUtilities';
 
 function AddReviewForm({ id, diningHall, user }) {
   const [state, change] = useFormData();
+  const [rating, setRating] = useState(null);
   const [images, setImages] = useState([]);
 
   const submit = (evt) => {
@@ -20,7 +22,7 @@ function AddReviewForm({ id, diningHall, user }) {
       formData.append("item_id", id);
       formData.append("review_title", state.values.formReviewTitle);
       formData.append("review_body", state.values.formReviewBody);
-      formData.append("rating", 5); // replace later with state.values.rating
+      formData.append("rating", rating); // replace later with state.values.rating
       formData.append("dining_hall", diningHall);
 
       // have to add user later
@@ -43,6 +45,13 @@ function AddReviewForm({ id, diningHall, user }) {
 
   return (
     <Form onSubmit={submit} noValidate encType="multipart/form-data">
+      <Rating
+        size="large"
+        onChange={(event, newValue) => {
+          console.log(newValue)
+          setRating(newValue);
+        }}
+      />
       <Form.Group className="mb-3" controlId="formReviewTitle">
         <Form.Label>Review title</Form.Label>
         <Form.Control type="text" placeholder="Enter title" onChange={change} />
