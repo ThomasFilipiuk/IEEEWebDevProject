@@ -22,10 +22,14 @@ const getReviews = async(req: Request, res: Response) => {
 
     if (response) {
       for (const review of response) {
-        if (review.filename) {
-          const imageURL = await getFile(review.filename);
-          review.image_url = imageURL;
-          delete review.filename;
+        if (review.filenames) {
+          const imageURLs = [];
+          for (const filename of review.filenames) {
+            const imageURL = await getFile(filename);
+            imageURLs.push(imageURL);
+          }
+          delete review.filenames;
+          review.image_urls = imageURLs;
         }
       }
     }

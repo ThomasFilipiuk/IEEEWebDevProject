@@ -22,6 +22,7 @@ const ItemPage = () => {
     });    
   }, []);
 
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -42,9 +43,10 @@ const ItemPage = () => {
             className="m-5 p-3"
             style={{ border: "1px solid black" }}
           >
-            <h2>Review written by anonymous author</h2>
+            <h2>{review.review_title}</h2>
             <p>{review.rating} stars</p>
-            <p>{review.review}</p>
+            <p>{review.review_body}</p>
+            { review.image_urls.map((e) => <img src={e}/>) }
           </div>
         ))}
       </div>
