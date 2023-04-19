@@ -12,10 +12,19 @@ const LocationPage = ({ locationName }) => {
   let [data, setData] = useState(null);  
   useEffect(() => {getData(`dining-hall/${locationName}`).then(response => {
     // console.log(response);
-    setData(response);    
+    setData(response);
   }
   );}, [])
+  const groupedItems = data ? data.reduce((result, item) => {
+    const category = item.category;
+    if (!result[category]) {
+      result[category] = [];
+    }
+    result[category].push(item);
+    return result;
+  }, {}) : null;
   console.log(data);
+  console.log('groupeditems', groupedItems);
   return (
     <div className="App">
       <Container fluid="md">
@@ -27,18 +36,21 @@ const LocationPage = ({ locationName }) => {
             <Link to="/">Return to locations</Link>
           </Col>
         </Row>
-        <Row class="row row-cols-3 row-cols-md-3 g-4">       
-            {data ? data.map((item) => (
-              // dining-hall/${locationName}?item_id=${item._id}
-              <Col>
-                <Card>
+        {data ? Object.keys(groupedItems).map(category => (
+          <Row>
+            <Col>
+              <h1>{category}</h1>
+              <hr />
+              <div className='d-flex flex-wrap'>
+                {groupedItems[category].map(item => (
                   <Link key={item._id} to={`/items/${locationName.toLowerCase()}/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
                     <ItemCard itemData={item}/>
                   </Link>
-                </Card>
-              </Col>
-              )) : ''}
-        </Row>
+                ))}
+              </div>
+            </Col>
+          </Row>
+        )) : ''}        
       </Container>
     </div>
   );

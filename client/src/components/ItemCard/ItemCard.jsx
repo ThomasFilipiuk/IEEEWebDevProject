@@ -17,7 +17,7 @@ const ItemCard = ({ itemData }) => {
         <Card.Title>{itemData.name}</Card.Title>
         <Card.Text >
           {itemData.description}
-        </Card.Text>  
+        </Card.Text>        
       </Card.Body>
       <Card.Footer>
         Rating: 4.5{itemData.rating}
