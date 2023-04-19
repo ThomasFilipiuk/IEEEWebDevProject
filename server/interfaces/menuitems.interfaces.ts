@@ -9,11 +9,12 @@ interface MenuItem {
     attributes: Attribute[];
     portion: string;
     calories: number | undefined;
-    nutritionalInfo: NutritionalInfo;
-    diningHall: string;
+    nutritional_info: NutritionalInfo;
+    dining_hall: string;
     category: string;
-    mealTime: string;
-    avgRating: number | null;
+    meal_time: string;
+    avg_rating: number | null;
+    num_reviews: number;
 }
 
 interface Attribute {
