@@ -10,7 +10,7 @@ const ItemCard = ({ itemData }) => {
   return (
     // <a href={`${locationData.name}/${itemData.name}`}>
     
-    <div className="m-3" style={{ "border": "black solid 1px" }}>
+    <div className="m-3">
       <h1>{itemData.name}</h1>
       <p>{itemData.description}</p>
       {/* <p>{avgRating} stars</p> */}

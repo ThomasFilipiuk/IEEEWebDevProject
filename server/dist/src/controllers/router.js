@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const dining_hall_controller_1 = require("./dining-hall.controller");
 const reviews_controller_1 = require("./reviews.controller");
+const metadata_controller_1 = require("./metadata.controller");
 const multer_1 = __importDefault(require("multer"));
 const router = (0, express_1.Router)();
 const storage = multer_1.default.memoryStorage();
@@ -15,4 +16,6 @@ router.route("/dining-hall/:diningHallName")
 router.route("/reviews")
     .get(reviews_controller_1.getReviews)
     .post(upload.array("images"), reviews_controller_1.postReview);
+router.route("/metadata")
+    .get(metadata_controller_1.getMetadata);
 exports.default = router;

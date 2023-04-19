@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 import ItemCard from '../components/ItemCard/ItemCard';
 import { Link } from 'react-router-dom';
 import { getData } from '../../utilities/apiUtilities';
@@ -26,15 +27,17 @@ const LocationPage = ({ locationName }) => {
             <Link to="/">Return to locations</Link>
           </Col>
         </Row>
-        <Row>
-          <Col>            
+        <Row class="row row-cols-3 row-cols-md-3 g-4">       
             {data ? data.map((item) => (
               // dining-hall/${locationName}?item_id=${item._id}
-              <Link key={item._id} to={`/items/${locationName.toLowerCase()}/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
-                <ItemCard itemData={item}/>
-              </Link>
+              <Col>
+                <Card>
+                  <Link key={item._id} to={`/items/${locationName.toLowerCase()}/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
+                    <ItemCard itemData={item}/>
+                  </Link>
+                </Card>
+              </Col>
               )) : ''}
-          </Col>
         </Row>
       </Container>
     </div>

@@ -62,6 +62,7 @@ const ItemPage = () => {
         <Modal.Body>
           <AddReviewForm
             id={id}
+            diningHall={locationName}
           />
         </Modal.Body>        
       </Modal>

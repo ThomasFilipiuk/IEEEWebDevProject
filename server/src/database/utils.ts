@@ -75,17 +75,22 @@ async function findAverageRating(collection: string, diningHall: string) {
     [
       {
         $group: {
-          _id: "$diningHall",
-          AverageRating: { $avg: "$rating" }
+          _id: "$dining_hall",
+          averageRating: { $avg: "$rating" }
         }
       }
     ]).toArray()
   
   const arr_val = avg_arr.filter((el:any) => {
     return el._id == diningHall;
-  })
-  //console.log("average rating:",arr_val,avg_arr);
-  return arr_val[0].AverageRating;
+  });
+
+  console.log("average rating:",arr_val,avg_arr);
+  if (arr_val.length === 0) {
+    return null;
+  }
+
+  return arr_val[0].averageRating;
 }
 
 async function findTopRating(collection: string, Hall: string) {

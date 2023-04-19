@@ -5,7 +5,7 @@ import { useFormData } from '../../../utilities/useFormData';
 import { getData, postData } from '../../../utilities/apiUtilities';
 // import { executeCreateReviewDocument } from '../../../utilities/mongoUtilities';
 
-function AddReviewForm({ id, user }) {
+function AddReviewForm({ id, diningHall, user }) {
   const [state, change] = useFormData();
   const [images, setImages] = useState([]);
 
@@ -21,6 +21,7 @@ function AddReviewForm({ id, user }) {
       formData.append("review_title", state.values.formReviewTitle);
       formData.append("review_body", state.values.formReviewBody);
       formData.append("rating", state.values.rating);
+      formData.append("dining_hall", diningHall);
 
       // have to add user later
       // implement rating

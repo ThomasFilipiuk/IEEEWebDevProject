@@ -14,21 +14,21 @@ app.listen((port), () => {
 });
 
 //send the metadata for a dining hall
-app.get('/metaData/:diningHallName', async (req,res) => {
-  try{
-    const diningHall = req.params.diningHallName;
-    //topItem, avgRating = await find_top_item(diningHall);
-    const topItem= await findTopRating("reviews",diningHall);
-    const avgRating= await findAverageRating("reviews",diningHall);
-    const imageLink = "image link";
-    res.json({"diningHall":diningHall,
-              "topItem": topItem,
-              "avgRating":avgRating,
-              "imageLink":imageLink
-  });
-  }
-  catch(err:any){
-    res.status(500).json({"error": err.message});
-  }})
+// app.get('/metaData/:diningHallName', async (req,res) => {
+//   try{
+//     const diningHall = req.params.diningHallName;
+//     //topItem, avgRating = await find_top_item(diningHall);
+//     const topItem= await findTopRating("reviews",diningHall);
+//     const avgRating= await findAverageRating("reviews",diningHall);
+//     const imageLink = "image link";
+//     res.json({"diningHall":diningHall,
+//               "topItem": topItem,
+//               "avgRating":avgRating,
+//               "imageLink":imageLink
+//   });
+//   }
+//   catch(err:any){
+//     res.status(500).json({"error": err.message});
+//   }})
 
 //implement databases for daily items
