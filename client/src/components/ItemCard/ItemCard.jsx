@@ -1,4 +1,6 @@
-// const ItemCard = ({ locationData, itemData }) => {
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 const ItemCard = ({ itemData }) => {
 
   // const avgRating = Object.entries(reviewsData).filter(([key, value]) => (
@@ -10,12 +12,19 @@ const ItemCard = ({ itemData }) => {
   return (
     // <a href={`${locationData.name}/${itemData.name}`}>
     
-    <div className="m-3">
-      <h1>{itemData.name}</h1>
-      <p>{itemData.description}</p>
-      {/* <p>{avgRating} stars</p> */}
-    </div>
-    // </a>
+    <Card className='m-3 text-start d-flex flex-column' style={{ width: '18rem', height: '200px' }}>
+      <Card.Body className='overflow-auto'>
+        <Card.Title>{itemData.name}</Card.Title>
+        <Card.Text >
+          {itemData.description}
+        </Card.Text>        
+      </Card.Body>
+      <Card.Footer>
+        Rating: 4.5{itemData.rating}
+      </Card.Footer>
+    </Card>    
+      
+      
   );
 }
 

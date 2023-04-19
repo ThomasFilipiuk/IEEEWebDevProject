@@ -9,7 +9,10 @@ import { useEffect, useState } from 'react';
 
 
 const App = () => {
-  
+  useEffect(() => {
+    
+  });
+
   const locationsMetadata = {
     "Sargent": {
       "name": "Sargent",
