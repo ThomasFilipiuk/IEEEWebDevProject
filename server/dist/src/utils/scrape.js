@@ -10,7 +10,7 @@ const upsertMenuItem = async (menuItem) => {
     const filter = { name: menuItem.name };
     const update = { $setOnInsert: menuItem };
     const options = { upsert: true };
-    const response = await (0, utils_1.updateOne)(menuItem.diningHall, filter, update, options);
+    const response = await (0, utils_1.updateOne)(menuItem.dining_hall, filter, update, options);
     console.log(response);
 };
 const mapNutritionalInfo = async (nutritionalInfoElements) => {
@@ -112,7 +112,9 @@ const mapMenuItems = async (menuItemsElements, page) => {
             attributes: attributes,
             portion: portion,
             calories: calories,
-            nutritionalInfo: { ingredients: [], nutrients: [] }
+            nutritional_info: { ingredients: [], nutrients: [] },
+            avg_rating: null,
+            num_reviews: 0
         };
         // @ts-ignore
         return return_ob;
@@ -134,9 +136,9 @@ const mapCategories = async (categoriesElements, page, diningHall, meal) => {
         const nutritionalInfoObj = await mapNutritionalInfo(nutritionalInfoElements);
         await page.waitForSelector("#nutritional-modal-61f477db8f3eb63e48343c03-63e888d4c625af07221997ca___BV_modal_outer_", { hidden: true });
         for (const menuItem of menuItems) {
-            menuItem.nutritionalInfo = nutritionalInfoObj[menuItem.name];
-            menuItem.diningHall = diningHall;
-            menuItem.mealTime = meal;
+            menuItem.nutritional_info = nutritionalInfoObj[menuItem.name];
+            menuItem.dining_hall = diningHall;
+            menuItem.meal_time = meal;
             menuItem.category = categoryName;
             //insert to the db here
             await upsertMenuItem(menuItem);
@@ -182,6 +184,7 @@ const scrapeDiningHallInfo = async () => {
         await scrapeMeals(page, diningHallNames[i]);
     }
 };
+// scrapeDiningHallInfo();
 // scheduled to run at 12:01 AM CST
 const scrapeJob = node_cron_1.default.schedule("0 1 0 * * *", () => {
     scrapeDiningHallInfo();

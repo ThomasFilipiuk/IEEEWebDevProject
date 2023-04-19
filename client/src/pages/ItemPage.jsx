@@ -33,8 +33,8 @@ const ItemPage = () => {
         <h1>{itemData.name}</h1>
         <p>{itemData.description}</p>
         <div>
-          <Link to={`/${itemData.diningHall}`}>
-            Go back to {itemData.diningHall}
+          <Link to={`/${itemData.dining_hall}`}>
+            Go back to {itemData.dining_hall}
           </Link>
         </div>
         {reviewsData.map((review) => (

@@ -9,6 +9,7 @@ const ItemCard = ({ itemData }) => {
   //   / (Object.entries(reviewsData).filter(([key, value]) => (
   //       Object.values(itemData.reviews).includes(key)
   //     )).length);
+  
   return (
     // <a href={`${locationData.name}/${itemData.name}`}>
     
@@ -20,7 +21,7 @@ const ItemCard = ({ itemData }) => {
         </Card.Text>        
       </Card.Body>
       <Card.Footer>
-        Rating: 4.5{itemData.rating}
+        { itemData.num_reviews > 0 ? `Rating: ${itemData.avg_rating}` : "No reviews yet!" }
       </Card.Footer>
     </Card>    
       

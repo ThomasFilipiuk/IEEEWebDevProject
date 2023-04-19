@@ -10,7 +10,7 @@ const upsertMenuItem = async(menuItem: MenuItem) => {
 
   const options = { upsert: true };
 
-  const response = await updateOne(menuItem.diningHall, filter, update, options);
+  const response = await updateOne(menuItem.dining_hall, filter, update, options);
 
   console.log(response);
 }
@@ -137,7 +137,9 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
       attributes: attributes,
       portion: portion,
       calories: calories,
-      nutritionalInfo: {ingredients: [], nutrients: []}
+      nutritional_info: {ingredients: [], nutrients: []},
+      avg_rating: null,
+      num_reviews: 0
     };
 
     // @ts-ignore
@@ -169,9 +171,9 @@ const mapCategories = async(categoriesElements: ElementHandle[], page: Page, din
     await page.waitForSelector("#nutritional-modal-61f477db8f3eb63e48343c03-63e888d4c625af07221997ca___BV_modal_outer_", {hidden: true});
 
     for (const menuItem of menuItems) {
-      menuItem.nutritionalInfo = nutritionalInfoObj[menuItem.name as keyof typeof nutritionalInfoObj];
-      menuItem.diningHall = diningHall;
-      menuItem.mealTime = meal;
+      menuItem.nutritional_info = nutritionalInfoObj[menuItem.name as keyof typeof nutritionalInfoObj];
+      menuItem.dining_hall = diningHall;
+      menuItem.meal_time = meal;
       menuItem.category = categoryName;
       //insert to the db here
       await upsertMenuItem(menuItem);
@@ -233,6 +235,8 @@ const scrapeDiningHallInfo = async() => {
     await scrapeMeals(page, diningHallNames[i]);
   }
 }
+
+// scrapeDiningHallInfo();
 
 // scheduled to run at 12:01 AM CST
 const scrapeJob = cron.schedule("0 1 0 * * *", () => {

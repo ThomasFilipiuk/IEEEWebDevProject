@@ -37,8 +37,21 @@ async function find(collection: string, query={}, projection?:any, options?:any)
   }
 }
 
+async function findOne(collection: string, query={}, projection?: any, options?: any) {
+  try {
+    const collectionObject = await getCollectionObject(collection);
+
+    const response = await collectionObject.findOne(query);
+
+    return response;
+  }
+  catch (err) {
+    console.error(err);
+  }
+}
+
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne/#mongodb-method-db.collection.updateOne
-async function updateOne(collection: string, filter, update, options) {
+async function updateOne(collection: string, filter: any, update: any, options?: any) {
   try {
     const collectionObject = getCollectionObject(collection);
 
@@ -114,4 +127,4 @@ async function findTopRating(collection: string, Hall: string) {
 
 }
 
-export { insertOne, find, updateOne, deleteMany, findAverageRating, findTopRating}
+export { insertOne, find, findOne, updateOne, deleteMany, findAverageRating, findTopRating}

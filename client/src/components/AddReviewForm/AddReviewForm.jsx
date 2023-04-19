@@ -20,7 +20,7 @@ function AddReviewForm({ id, diningHall, user }) {
       formData.append("item_id", id);
       formData.append("review_title", state.values.formReviewTitle);
       formData.append("review_body", state.values.formReviewBody);
-      formData.append("rating", state.values.rating);
+      formData.append("rating", 5); // replace later with state.values.rating
       formData.append("dining_hall", diningHall);
 
       // have to add user later

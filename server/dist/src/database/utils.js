@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findTopRating = exports.findAverageRating = exports.deleteMany = exports.updateOne = exports.find = exports.insertOne = void 0;
+exports.findTopRating = exports.findAverageRating = exports.deleteMany = exports.updateOne = exports.findOne = exports.find = exports.insertOne = void 0;
 const client_1 = __importDefault(require("./client"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -34,6 +34,17 @@ async function find(collection, query = {}, projection, options) {
     }
 }
 exports.find = find;
+async function findOne(collection, query = {}, projection, options) {
+    try {
+        const collectionObject = await getCollectionObject(collection);
+        const response = await collectionObject.findOne(query);
+        return response;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+exports.findOne = findOne;
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.updateOne/#mongodb-method-db.collection.updateOne
 async function updateOne(collection, filter, update, options) {
     try {

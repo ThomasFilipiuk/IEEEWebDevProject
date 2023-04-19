@@ -13,6 +13,7 @@ interface MenuItem {
     diningHall: string;
     category: string;
     mealTime: string;
+    avgRating: number | null;
 }
 
 interface Attribute {

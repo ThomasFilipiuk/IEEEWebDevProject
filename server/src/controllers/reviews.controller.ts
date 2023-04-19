@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ReviewsQuery } from "../../interfaces/queries.interfaces";
 import { ObjectId } from "mongodb";
-import { find, insertOne } from "../database/utils";
+import { find, findOne, insertOne, updateOne } from "../database/utils";
 import { uploadFile, getFile } from "../s3/utils";
 
 // retrieve reviews that match with a specific query
@@ -70,7 +70,32 @@ const postReview = async(req: Request, res: Response) => {
 
     review_ob.filenames = filenames;
 
-    const result = await insertOne("reviews", review_ob);
+    let result = await insertOne("reviews", review_ob);
+    
+    if (result.acknowledged) {
+      const menuItem = await findOne(review_ob.dining_hall, {_id: review_ob.item_id});
+
+      let total = 0;
+      if (menuItem.num_reviews > 0) {
+        total = menuItem.avg_rating * menuItem.num_reviews;
+      }
+      
+      const numReviews = menuItem.num_reviews + 1;
+      const avgRating = (total + review_ob.rating) / numReviews;
+
+      result = await updateOne(review_ob.dining_hall, 
+        {
+          _id: review_ob.item_id
+        },
+        {
+          $set: {
+            num_reviews: numReviews,
+            avg_rating: avgRating
+          }
+        }
+      );
+    }
+
     res.json(result);
   }
   catch(err: any){
