@@ -16,8 +16,8 @@ const AllLocations = ({ data }) => {
       <Container fluid="md">
         <Row>
           <Col>{Object.entries(data).map(([key, value]) => (
-            <Link key={value.name} to={`/${value.name}`} style={{"textDecoration": "none", "color": "black"}} >
-              <LocationCard locationData={value} />
+            <Link key={key} to={`/${key}`} style={{"textDecoration": "none", "color": "black"}} >
+              <LocationCard locationData={value} locationName={key.charAt(0).toUpperCase() + key.slice(1)} />
             </Link>))}</Col>
         </Row>
       </Container>
