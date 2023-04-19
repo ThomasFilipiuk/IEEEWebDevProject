@@ -25,6 +25,7 @@ const LocationPage = ({ locationName }) => {
   }, {}) : null;
   console.log(data);
   console.log('groupeditems', groupedItems);
+  
   return (
     <div className="App">
       <Container fluid="md">
@@ -39,7 +40,7 @@ const LocationPage = ({ locationName }) => {
         {data ? Object.keys(groupedItems).map(category => (
           <Row>
             <Col>
-              <h1>{category}</h1>
+              <h2>{category}</h2>
               <hr />
               <div className='d-flex flex-wrap'>
                 {groupedItems[category].map(item => (

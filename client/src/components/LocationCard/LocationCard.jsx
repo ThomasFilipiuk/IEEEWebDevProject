@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-const LocationCard = ({locationData}) => {
+const LocationCard = ({locationData, locationName}) => {
   return(        
     
     <Card className='m-3'>
@@ -10,8 +10,8 @@ const LocationCard = ({locationData}) => {
         style={{"height": "180px", "objectFit": "cover"}}
         />
       <Card.Body>
-        <Card.Title>{locationData.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Rating: {locationData.averageRating}</Card.Subtitle>
+        <Card.Title>{locationName}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">Rating: {locationData.avg_rating}</Card.Subtitle>
         <Card.Text>
           Top item: {locationData.topItem}
         </Card.Text>        

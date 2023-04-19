@@ -2,14 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const ItemCard = ({ itemData }) => {
-
-  // const avgRating = Object.entries(reviewsData).filter(([key, value]) => (
-  //     Object.values(itemData.reviews).includes(key))
-  //   ).map(([key, value]) => (value.rating)).reduce((a, b) => (a + b), 0)
-  //   / (Object.entries(reviewsData).filter(([key, value]) => (
-  //       Object.values(itemData.reviews).includes(key)
-  //     )).length);
-  
   return (
     // <a href={`${locationData.name}/${itemData.name}`}>
     
