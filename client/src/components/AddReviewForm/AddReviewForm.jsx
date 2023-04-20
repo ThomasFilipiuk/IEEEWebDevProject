@@ -6,7 +6,7 @@ import { useFormData } from '../../../utilities/useFormData';
 import { getData, postData } from '../../../utilities/apiUtilities';
 // import { executeCreateReviewDocument } from '../../../utilities/mongoUtilities';
 
-function AddReviewForm({ id, diningHall, user }) {
+function AddReviewForm({ id, diningHall, setShowModal, setShowAlert, reviewsData, setReviewsData, user }) {
   const [state, change] = useFormData();
   const [rating, setRating] = useState(null);
   const [images, setImages] = useState([]);
@@ -32,10 +32,32 @@ function AddReviewForm({ id, diningHall, user }) {
         formData.append("images", image);
       }
       
+      // console.log(images)
+      // return;
 
-      postData("reviews", formData);
+      postData("reviews", formData)
+        .then((response) => {
+          if (response.error) {
+            return;
+          }
 
-      // fetchData()
+          setShowAlert(true);
+          setShowModal(false);
+
+          const imageURLs = [];
+          for (const image of images) {
+            imageURLs.push(URL.createObjectURL(image));
+          }
+
+          setReviewsData([...reviewsData, {
+            item_id: id,
+            review_title: state.values.formReviewTitle,
+            review_body: state.values.formReviewBody,
+            rating: rating,
+            dining_hall: diningHall,
+            image_urls: imageURLs
+          }]);
+        });
     }
   };
 

@@ -27,6 +27,7 @@ export async function postData(endpoint, body) {
     
     const data = await response.json();
     console.log('Review data has been posted successfully:', data);
+    return data;
   } catch (error) {
     console.error('Error posting review data:', error);
   }

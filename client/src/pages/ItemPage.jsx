@@ -10,12 +10,15 @@ import AddReviewForm from '../components/AddReviewForm/AddReviewForm';
 import ReviewCard from '../components/ReviewCard/ReviewCard';
 import { getData } from '../../utilities/apiUtilities';
 import Modal from 'react-bootstrap/Modal';
+import Alert from 'react-bootstrap/Alert';
 
 const ItemPage = () => {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [itemData, setItemData] = useState(null);
   const [reviewsData, setReviewsData] = useState(null);
   const [image, setImage] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
+  
   const { locationName, id } = useParams();
   useEffect(() => {
     getData(`reviews?item_id=${id}`).then(response => {
@@ -36,12 +39,28 @@ const ItemPage = () => {
       })
     });    
   }, []);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+
   return (
     <div>
     {itemData && reviewsData && (
       <div className="App">
+        <Alert 
+          className="position-fixed w-75 start-50 translate-middle-x"
+          style={{
+            top: 20,
+            zIndex: 99
+          }}
+          variant="success"
+          dismissible
+          transition
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+        >
+          Review posted successfully!
+        </Alert>
         <Container fluid="md">
           <Row>
             <Col className='m-5'>
@@ -59,12 +78,12 @@ const ItemPage = () => {
                 <ReviewCard key={review._id} review={review} />                          
               ))}  
             </Col>
-            </Row>          
+          </Row>          
         </Container>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={handleShowModal}>
           Add a review
         </Button>
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>
             <Modal.Title>Add a review</Modal.Title>
           </Modal.Header>
@@ -72,6 +91,10 @@ const ItemPage = () => {
             <AddReviewForm
               id={id}
               diningHall={locationName}
+              setShowModal={setShowModal}
+              setShowAlert={setShowAlert}
+              reviewsData={reviewsData}
+              setReviewsData={setReviewsData}
             />
           </Modal.Body>        
         </Modal>

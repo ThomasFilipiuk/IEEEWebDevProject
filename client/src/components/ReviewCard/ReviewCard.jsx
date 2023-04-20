@@ -1,7 +1,8 @@
 import Card from 'react-bootstrap/Card';
+import Rating from '@mui/material/Rating';
+
 
 const ReviewCard = ({ review }) => {
-  console.log(review);
   return (
 
     <Card className='m-3 text-start d-flex flex-column' style={{ width: '18rem', height: '200px' }}>
@@ -15,7 +16,13 @@ const ReviewCard = ({ review }) => {
         ))}        
       </Card.Body>
       <Card.Footer>
-        Rating: {review.rating}
+        <Rating 
+          readOnly 
+          value={review.rating}
+          style={{
+            verticalAlign: "middle"
+          }}
+        />
       </Card.Footer>
     </Card>        
 
