@@ -15,7 +15,7 @@ const App = () => {
       setLocationsMetadata(response);
       console.log(response);
     })
-  });  
+  }, []);  
 
   // const locationsMetadata = {
   //   "Sargent": {
