@@ -27,8 +27,9 @@ const LocationCard = ({locationData, locationName}) => {
       <Card.Body>
         <Card.Title>{locationName}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          <Rating 
+          <Rating
             value={locationData.avg_rating}
+            precision={0.1}
             readOnly
             style={{
               verticalAlign: "middle"
