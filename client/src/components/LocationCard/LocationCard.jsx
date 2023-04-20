@@ -1,7 +1,21 @@
 import Card from 'react-bootstrap/Card';
+import { useState, useEffect } from 'react';
+import { getData } from '../../../utilities/apiUtilities';
 
 const LocationCard = ({locationData, locationName}) => {
-  return(        
+  const [topItem, setTopItem] = useState(null);
+  console.log('locationdata:',locationData);
+  const topItemId = locationData.top_item?.item_id;
+  useEffect(() => {
+    if (topItemId !== undefined) { 
+      getData(`dining-hall/${locationName}?_id=${topItemId}`).then(response => {
+        setTopItem(response[0]);
+        // console.log('top item', response[0]);
+      })
+    }
+  }, []);
+
+  return(
     
     <Card className='m-3'>
       <Card.Img 
@@ -13,7 +27,7 @@ const LocationCard = ({locationData, locationName}) => {
         <Card.Title>{locationName}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Rating: {locationData.avg_rating}</Card.Subtitle>
         <Card.Text>
-          Top item: {locationData.topItem}
+          Top item: {topItem ? topItem.name : 'No top item'}
         </Card.Text>        
       </Card.Body>
     </Card>

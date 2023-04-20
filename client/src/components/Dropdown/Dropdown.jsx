@@ -1,12 +1,16 @@
 import Form from 'react-bootstrap/Form';
 
-function Dropdown() {
+function Dropdown({setSortCriteria}) {
+  const handleSortChange = (event) => {
+    const selectedValue = event.target.value;
+    setSortCriteria(selectedValue);
+  }
   return (
-    <Form.Select aria-label="Default select example">
+    <Form.Select aria-label="Default select example" onChange={handleSortChange} >
       <option>Sort by</option>
-      <option value="1">Rating</option>
-      <option value="2">Distance</option>
-      <option value="3">Popularity</option>
+      <option value="Rating">Rating</option>
+      <option value="Alphabetical">Alphabetical</option>
+      <option value="Distance">Distance</option>
     </Form.Select>
   );
 }
