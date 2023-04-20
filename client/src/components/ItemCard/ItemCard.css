@@ -1,0 +1,9 @@
+.next-icon {
+  position: absolute !important;
+  left: 20px;
+}
+
+.prev-icon {
+  position: absolute !important;
+  right: 20px;
+}

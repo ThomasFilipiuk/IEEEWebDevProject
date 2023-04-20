@@ -4,10 +4,17 @@ import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import RatingStars from '../RatingStars/RatingStars';
 import ItemBadge from '../ItemBadge/ItemBadge';
+import './ItemCard.css';
 
-const PrevNextIcon = () => {
+const NextIcon = () => {
   return (
-    <span aria-hidden="true" className="carousel-control-next-icon position-absolute"/>
+    <span aria-hidden="true" className="carousel-control-next-icon next-icon"/>
+  )
+}
+
+const PrevIcon = () => {
+  return (
+    <span aria-hidden="true" className="carousel-control-prev-icon prev-icon"/>
   )
 }
 
@@ -32,8 +39,8 @@ const ItemCard = ({ itemData }) => {
           variant='dark'
           wrap={false}
           indicators={false}
-          nextIcon={<PrevNextIcon />}
-          prevIcon={<PrevNextIcon />}
+          nextIcon={<NextIcon />}
+          prevIcon={<PrevIcon />}
           interval={null}
         >
           <Carousel.Item>
@@ -41,7 +48,7 @@ const ItemCard = ({ itemData }) => {
             <Card.Text >
               {itemData.description}
             </Card.Text>  
-            </Carousel.Item>     
+          </Carousel.Item>     
           <Carousel.Item>
             <Card.Title>Nutritional Info</Card.Title>
             <Card.Text>

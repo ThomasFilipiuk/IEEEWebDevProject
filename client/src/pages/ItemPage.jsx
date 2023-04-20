@@ -11,6 +11,7 @@ import ReviewCard from '../components/ReviewCard/ReviewCard';
 import { getData } from '../../utilities/apiUtilities';
 import Modal from 'react-bootstrap/Modal';
 import Alert from 'react-bootstrap/Alert';
+import RatingStars from '../components/RatingStars/RatingStars';
 
 const ItemPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -67,6 +68,17 @@ const ItemPage = () => {
               <Image src={image} rounded />
               <h1>{itemData.name}</h1>
               <p>{itemData.description}</p>
+              <div>
+              <RatingStars
+                readOnly
+                value={
+                  itemData.num_reviews > 0
+                    ? itemData.total_rating / itemData.num_reviews
+                    : 0
+                }
+                size="large"
+              />
+              </div>
               <Link to={`/${itemData.dining_hall}`}>
                 Go back to {itemData.dining_hall}
               </Link>

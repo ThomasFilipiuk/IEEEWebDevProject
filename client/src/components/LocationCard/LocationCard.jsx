@@ -31,6 +31,7 @@ const LocationCard = ({locationData, locationName}) => {
             value={locationData.avg_rating}
             precision={0.1}
             readOnly
+            size="large"
           />
         </Card.Subtitle>
         <Card.Text>
