@@ -55,6 +55,9 @@ const postReview = async (req, res) => {
         if (review_ob.item_id) {
             review_ob.item_id = new mongodb_1.ObjectId(review_ob.item_id);
         }
+        if (review_ob.rating) {
+            review_ob.rating = parseInt(review_ob.rating);
+        }
         const filenames = [];
         for (const file of req.files) {
             // uploadFile returns filename of newly added s3 object

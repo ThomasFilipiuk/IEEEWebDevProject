@@ -61,6 +61,10 @@ const postReview = async(req: Request, res: Response) => {
     if (review_ob.item_id) {
       review_ob.item_id = new ObjectId(review_ob.item_id);
     }
+    if (review_ob.rating) {
+      review_ob.rating = parseInt(review_ob.rating);
+    }
+
 
     const filenames = [];
     for (const file of req.files as Express.Multer.File[]) {
