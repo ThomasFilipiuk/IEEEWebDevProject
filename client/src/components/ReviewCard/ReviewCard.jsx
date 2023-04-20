@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import Rating from '@mui/material/Rating';
+import RatingStars from '../RatingStars/RatingStars';
 
 
 const ReviewCard = ({ review }) => {
@@ -16,12 +16,9 @@ const ReviewCard = ({ review }) => {
         ))}        
       </Card.Body>
       <Card.Footer>
-        <Rating 
-          readOnly 
+        <RatingStars
+          readOnly={true}
           value={review.rating}
-          style={{
-            verticalAlign: "middle"
-          }}
         />
       </Card.Footer>
     </Card>        

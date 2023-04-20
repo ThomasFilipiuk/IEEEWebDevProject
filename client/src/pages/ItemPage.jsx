@@ -73,7 +73,7 @@ const ItemPage = () => {
             </Col>
           </Row>
           <Row>
-            <Col className='d-flex flex-wrap'>
+            <Col className='d-flex flex-wrap justify-content-center'>
               {reviewsData.map((review) => (                
                 <ReviewCard key={review._id} review={review} />                          
               ))}  

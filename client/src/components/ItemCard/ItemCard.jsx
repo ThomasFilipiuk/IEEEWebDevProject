@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Rating from '@mui/material/Rating';
+import RatingStars from '../RatingStars/RatingStars';
+import ItemBadge from '../ItemBadge/ItemBadge';
 
 const ItemCard = ({ itemData }) => {
   // console.log(itemData.total_rating / itemData.num_reviews);
@@ -16,18 +17,23 @@ const ItemCard = ({ itemData }) => {
           {itemData.description}
         </Card.Text>        
       </Card.Body>
-      <Card.Footer>
+      <Card.Footer className='d-flex align-items-center justify-content-between'>
         { itemData.num_reviews > 0 
-            ? <Rating 
+            ? <RatingStars
                 value={itemData.total_rating / itemData.num_reviews}
                 precision={0.1}
                 readOnly
-                style={{
-                  verticalAlign: "middle"
-                }}
               /> 
             : "No reviews yet!" 
         }
+        <span>
+          <ItemBadge 
+            text={itemData.meal_time}
+          />
+          {/* <ItemBadge
+            text="hey"
+          /> */}
+        </span>
       </Card.Footer>
     </Card>    
       

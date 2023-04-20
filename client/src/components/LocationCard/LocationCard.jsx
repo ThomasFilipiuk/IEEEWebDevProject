@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
 import { getData } from '../../../utilities/apiUtilities';
-import Rating from '@mui/material/Rating';
+import RatingStars from '../RatingStars/RatingStars';
 
 const LocationCard = ({locationData, locationName}) => {
   const [topItem, setTopItem] = useState(null);
@@ -27,13 +27,10 @@ const LocationCard = ({locationData, locationName}) => {
       <Card.Body>
         <Card.Title>{locationName}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          <Rating
+          <RatingStars
             value={locationData.avg_rating}
             precision={0.1}
             readOnly
-            style={{
-              verticalAlign: "middle"
-            }}
           />
         </Card.Subtitle>
         <Card.Text>

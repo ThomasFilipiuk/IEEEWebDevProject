@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Rating from '@mui/material/Rating';
+import RatingStars from '../RatingStars/RatingStars';
 import { useFormData } from '../../../utilities/useFormData';
 import { getData, postData } from '../../../utilities/apiUtilities';
 // import { executeCreateReviewDocument } from '../../../utilities/mongoUtilities';
@@ -67,7 +67,7 @@ function AddReviewForm({ id, diningHall, setShowModal, setShowAlert, reviewsData
 
   return (
     <Form onSubmit={submit} noValidate encType="multipart/form-data">
-      <Rating
+      <RatingStars
         size="large"
         onChange={(event, newValue) => {
           console.log(newValue)
