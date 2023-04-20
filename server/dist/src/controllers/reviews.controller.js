@@ -61,25 +61,24 @@ const postReview = async (req, res) => {
             filenames.push(await (0, utils_2.uploadFile)(file));
         }
         review_ob.filenames = filenames;
-        let result = await (0, utils_1.insertOne)("reviews", review_ob);
-        if (result.acknowledged) {
-            const menuItem = await (0, utils_1.findOne)(review_ob.dining_hall, { _id: review_ob.item_id });
-            let total = 0;
-            if (menuItem.num_reviews > 0) {
-                total = menuItem.avg_rating * menuItem.num_reviews;
-            }
-            const numReviews = menuItem.num_reviews + 1;
-            const avgRating = (total + review_ob.rating) / numReviews;
-            result = await (0, utils_1.updateOne)(review_ob.dining_hall, {
-                _id: review_ob.item_id
-            }, {
-                $set: {
-                    num_reviews: numReviews,
-                    avg_rating: avgRating
-                }
-            });
+        const insertResponse = await (0, utils_1.insertOne)("reviews", review_ob);
+        if (!insertResponse.acknowledged) {
+            res.status(500).json(insertResponse);
+            return;
         }
-        res.json(result);
+        const menuItem = await (0, utils_1.findOne)(review_ob.dining_hall, { _id: review_ob.item_id });
+        const numReviews = menuItem.num_reviews + 1;
+        const totalRating = menuItem.total_rating + parseInt(review_ob.rating);
+        // console.log(total, numReviews, review_ob.rating, avgRating);
+        const updateResponse = await (0, utils_1.updateOne)(review_ob.dining_hall, {
+            _id: review_ob.item_id
+        }, {
+            $set: {
+                num_reviews: numReviews,
+                total_rating: totalRating
+            }
+        });
+        res.json(updateResponse);
     }
     catch (err) {
         res.status(500).json({ error: err.message });

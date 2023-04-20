@@ -13,7 +13,7 @@ const ItemCard = ({ itemData }) => {
         </Card.Text>        
       </Card.Body>
       <Card.Footer>
-        { itemData.num_reviews > 0 ? `Rating: ${itemData.avg_rating}` : "No reviews yet!" }
+        { itemData.num_reviews > 0 ? `Rating: ${itemData.total_rating / itemData.num_reviews}` : "No reviews yet!" }
       </Card.Footer>
     </Card>    
       

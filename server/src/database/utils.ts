@@ -98,7 +98,7 @@ async function findAverageRating(collection: string, diningHall: string) {
     return el._id == diningHall;
   });
 
-  console.log("average rating:",arr_val,avg_arr);
+  // console.log("average rating:",arr_val,avg_arr);
   if (arr_val.length === 0) {
     return null;
   }

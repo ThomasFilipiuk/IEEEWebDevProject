@@ -13,7 +13,7 @@ interface MenuItem {
     dining_hall: string;
     category: string;
     meal_time: string;
-    avg_rating: number | null;
+    total_rating: number;
     num_reviews: number;
 }
 

@@ -138,7 +138,7 @@ const mapMenuItems = async(menuItemsElements: ElementHandle[], page: Page): Prom
       portion: portion,
       calories: calories,
       nutritional_info: {ingredients: [], nutrients: []},
-      avg_rating: null,
+      total_rating: 0,
       num_reviews: 0
     };
 

@@ -13,6 +13,7 @@ const getDiningHall = async(req: Request, res: Response) => {
     }
 
     const result = await find(diningHall, query);
+
     res.json(result);
   }
   catch (err: any) {
