@@ -37,6 +37,25 @@ const LocationPage = ({ locationName }) => {
             <Link to="/">Return to locations</Link>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <h2>Top items</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Breakfast</span></h3>
+            <p>hihih</p>
+            pooga
+          </Col>
+          <Col>
+            <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Lunch</span></h3>
+            ooga
+          </Col>
+          <Col>
+            <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Dinner</span></h3>
+          </Col>
+        </Row>
         {data ? Object.keys(groupedItems).map(category => (
           <Row>
             <Col>
