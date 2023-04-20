@@ -61,7 +61,7 @@ const LocationPage = ({ locationName }) => {
             <Col>
               <h2>{category}</h2>
               <hr />
-              <div className='d-flex flex-wrap'>
+              <div className='d-flex flex-wrap justify-content-center'>
                 {groupedItems[category].map(item => (
                   <Link key={item._id} to={`/items/${locationName.toLowerCase()}/${item._id}`} style={{"textDecoration": "none", "color": "black"}} >
                     <ItemCard itemData={item}/>
