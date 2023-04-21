@@ -2,16 +2,22 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
+import Collapse from 'react-bootstrap/Collapse';
+import FilterBadge from "../components/Filter/FilterBadge";
 import ItemCard from '../components/ItemCard/ItemCard';
 import Filter from '../components/Filter/Filter';
 import { Link } from 'react-router-dom';
 import { getData } from '../../utilities/apiUtilities';
 import { useEffect, useState } from 'react';
 import RatingStars from '../components/RatingStars/RatingStars';
+import SearchIcon from '../components/SearchIcon/SearchIcon';
 
 // const LocationPage = ({ locationData, itemsData, reviewsData, locationName }) => {
 const LocationPage = ({ locationName, averageRating }) => {
   const [data, setData] = useState(null);  
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     getData(`dining-hall/${locationName}`).then(response => {
@@ -69,10 +75,28 @@ const LocationPage = ({ locationName, averageRating }) => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="d-flex justify-content-between mt-4">
+            <InputGroup style={{width: "90%"}}>
+              <InputGroup.Text><SearchIcon /></InputGroup.Text>
+              <Form.Control
+                placeholder="Search by menu item name..."
+                
+              />
+              
+            </InputGroup>
             <Filter 
-            
+              open={open}
+              setOpen={setOpen}
             />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Collapse in={open} className="m-3">
+              <div>
+                <FilterBadge />
+              </div>
+            </Collapse>
           </Col>
         </Row>
         {data ? Object.keys(groupedItems).map(category => (
