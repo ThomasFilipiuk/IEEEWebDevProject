@@ -6,6 +6,7 @@ const ReviewCard = ({ review }) => {
   return (
 
     <Card className='m-3 text-start d-flex flex-column' style={{ width: '18rem', height: '200px' }}>
+      
       <Card.Body className='overflow-auto'>
         <Card.Title>{review.review_title}</Card.Title>
         <Card.Text >

@@ -5,9 +5,15 @@ import Carousel from 'react-bootstrap/Carousel';
 import RatingStars from '../RatingStars/RatingStars';
 import ItemBadge from '../ItemBadge/ItemBadge';
 
-const PrevNextIcon = () => {
+const NextIcon = () => {
   return (
     <span aria-hidden="true" className="carousel-control-next-icon position-absolute"/>
+  )
+}
+
+const PrevIcon = () => {
+  return (
+    <span aria-hidden="true" className="carousel-control-prev-icon position-absolute"/>
   )
 }
 
@@ -23,17 +29,17 @@ const ItemCard = ({ itemData }) => {
     // <a href={`${locationData.name}/${itemData.name}`}>
 
     
-    <Card className='m-3 text-start d-flex flex-column' style={{ width: '18rem', height: '200px' }}>
+    <Card className='m-3 text-start d-flex flex-column' style={{ width: '20rem', height: '210px' }}>
       <Card.Body className='d-flex overflow-auto'>
         <Carousel 
-          className="flex-grow-1" 
+          className="flex-grow-1 px-5 pt-1" 
           activeIndex={activeIndex} 
           onSelect={handleSelect}
           variant='dark'
           wrap={false}
           indicators={false}
-          nextIcon={<PrevNextIcon />}
-          prevIcon={<PrevNextIcon />}
+          nextIcon={<NextIcon />}
+          prevIcon={<PrevIcon />}
           interval={null}
         >
           <Carousel.Item>
