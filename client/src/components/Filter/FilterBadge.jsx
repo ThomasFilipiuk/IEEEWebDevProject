@@ -1,13 +1,13 @@
 import Badge from 'react-bootstrap/Badge';
 
-const FilterBadge = () => {
+const FilterBadge = ({ text }) => {
   return (
     // <p>WHAT</p>
     <Badge 
       // href={ href }
       pill
       // bg="secondary"
-      // className={text.toLowerCase()}
+      className={text.toLowerCase()}
       style={{
         marginLeft: 5
       }}

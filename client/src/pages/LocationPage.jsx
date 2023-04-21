@@ -13,16 +13,25 @@ import { getData } from '../../utilities/apiUtilities';
 import { useEffect, useState } from 'react';
 import RatingStars from '../components/RatingStars/RatingStars';
 import SearchIcon from '../components/SearchIcon/SearchIcon';
+import ItemBadge from '../components/ItemBadge/ItemBadge';
 
 // const LocationPage = ({ locationData, itemsData, reviewsData, locationName }) => {
 const LocationPage = ({ locationName, averageRating }) => {
-  const [data, setData] = useState(null);  
+  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
   const [open, setOpen] = useState(false);
+  const [mealTimesFilter, setMealTimesFilter] = useState({
+    "Breakfast": false,
+    "Lunch": false,
+    "Dinner": false,
+    "Every Day": false
+  });
 
   useEffect(() => {
     getData(`dining-hall/${locationName}`).then(response => {
       // console.log(response);
       setData(response);
+      setAllData(response);
     });
   }, []);
 
@@ -41,6 +50,29 @@ const LocationPage = ({ locationName, averageRating }) => {
     getData(`dining-hall/${locationName}?name=${e.target.value}`)
       .then(response => setData(response));
   }
+
+  const handleMealTimesFilterChange = (checked, mealTime) => {
+    const newMealTimesFilter = {... mealTimesFilter};
+    newMealTimesFilter[mealTime] = checked;
+    console.log(newMealTimesFilter);
+    setMealTimesFilter(newMealTimesFilter);
+
+    if (Object.values(newMealTimesFilter).every(e => e === false)) {
+      setData(allData);
+      return;
+    }
+
+    const newData = [];
+    for (const item of data) {
+      if (newMealTimesFilter[item.meal_time]) {
+        newData.push(item);
+      }
+    }
+
+    setData(newData);
+  }
+
+  const mealTimes = ["Breakfast", "Lunch", "Dinner", "Every Day"];
 
   return (
     <div className="App bg-light">
@@ -98,9 +130,21 @@ const LocationPage = ({ locationName, averageRating }) => {
         <Row>
           <Col>
             <Collapse in={open} className="m-3">
-              <div>
-                <FilterBadge />
-              </div>
+              <Form>
+                { mealTimes.map(e => {
+                  return (
+                    <Form.Check
+                      onChange={(event) => handleMealTimesFilterChange(event.target.checked, e)}
+                      type="checkbox"
+                      label={<ItemBadge text={e}/>}
+                      className="d-inline-block"
+                      style={{
+                        marginLeft: 25
+                      }}
+                    />
+                  );
+                }) }
+              </Form>
             </Collapse>
           </Col>
         </Row>
