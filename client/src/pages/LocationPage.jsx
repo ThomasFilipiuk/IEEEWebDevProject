@@ -37,6 +37,11 @@ const LocationPage = ({ locationName, averageRating }) => {
   console.log(data);
   console.log('groupeditems', groupedItems);
   
+  const handleInputChange = (e) => {
+    getData(`dining-hall/${locationName}?name=${e.target.value}`)
+      .then(response => setData(response));
+  }
+
   return (
     <div className="App bg-light">
       <Container fluid="md">
@@ -76,7 +81,7 @@ const LocationPage = ({ locationName, averageRating }) => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-between mt-4">
-            <InputGroup style={{width: "90%"}}>
+            <InputGroup  onChange={handleInputChange} style={{width: "90%"}}>
               <InputGroup.Text><SearchIcon /></InputGroup.Text>
               <Form.Control
                 placeholder="Search by menu item name..."

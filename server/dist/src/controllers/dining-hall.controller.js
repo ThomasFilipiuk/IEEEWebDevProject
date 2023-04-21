@@ -10,6 +10,23 @@ const getDiningHall = async (req, res) => {
         if (req.query._id) {
             query._id = new mongodb_1.ObjectId(req.query._id);
         }
+        if (req.query.name) {
+            const searchResults = await (0, utils_1.aggregate)(diningHall, [
+                {
+                    $search: {
+                        autocomplete: {
+                            query: req.query.name,
+                            path: "name"
+                        }
+                    }
+                },
+                {
+                    $sort: { "score": { $meta: "textScore" } }
+                }
+            ]);
+            res.json(searchResults);
+            return;
+        }
         const result = await (0, utils_1.find)(diningHall, query);
         res.json(result);
     }

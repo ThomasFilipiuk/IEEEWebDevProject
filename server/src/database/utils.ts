@@ -81,6 +81,19 @@ async function deleteMany(collection: string, filter:any) {
     console.error(e);
   }
 }
+
+async function aggregate(collection: string, pipeline, options?: any) {
+  try {
+    const collectionObject = getCollectionObject(collection);
+
+    const response = await collectionObject.aggregate(pipeline, options).toArray();
+
+    return response;
+  }
+  catch (e) {
+    console.error(e);
+  }
+}
 //for a given dining hall, find the top and avg rating
 async function findAverageRating(collection: string, diningHall: string) {
   const collectionObject = getCollectionObject(collection);
@@ -127,4 +140,4 @@ async function findTopRating(collection: string, Hall: string) {
 
 }
 
-export { insertOne, find, findOne, updateOne, deleteMany, findAverageRating, findTopRating}
+export { insertOne, find, findOne, updateOne, deleteMany, aggregate, findAverageRating, findTopRating}
