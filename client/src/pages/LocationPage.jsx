@@ -58,10 +58,19 @@ const LocationPage = ({ locationName, averageRating }) => {
     }
     result[category].push(item);
     return result;
+  }, {}) : null;  
+  
+  const mealGroupedItems = data ? data.reduce((result, item) => {
+    if (!result[item.meal_time]) {
+      result[item.meal_time] = [];
+    }
+    result[item.meal_time].push(item);
+    return result;
   }, {}) : null;
+
   // console.log(data);
   // console.log('groupeditems', groupedItems);
-  
+
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
     getData(`dining-hall/${locationName}?name=${e.target.value}`)
@@ -241,15 +250,15 @@ const LocationPage = ({ locationName, averageRating }) => {
         <Row>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Breakfast</span></h3>
-            <p>hihih</p>
-            pooga
+            {mealGroupedItems ? mealGroupedItems['Breakfast'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Lunch</span></h3>
-            ooga
+            {mealGroupedItems ? mealGroupedItems['Lunch'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Dinner</span></h3>
+            {mealGroupedItems ? mealGroupedItems['Dinner'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
         </Row>
         <Row>
