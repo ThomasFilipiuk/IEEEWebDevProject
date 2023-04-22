@@ -16,7 +16,7 @@ const ReviewCard = ({ review }) => {
           <Card.Img src={imglink} />
         ))}        
       </Card.Body>
-      <Card.Footer>
+      <Card.Footer className='d-flex align-items-center justify-content-between'>
         <RatingStars
           readOnly={true}
           value={review.rating}

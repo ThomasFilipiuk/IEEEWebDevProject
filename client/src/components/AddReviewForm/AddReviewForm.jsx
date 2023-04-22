@@ -37,7 +37,7 @@ function AddReviewForm({ id, diningHall, setShowModal, setShowAlert, reviewsData
 
       postData("reviews", formData)
         .then((response) => {
-          if (response.error) {
+          if (!response || response.error) {
             return;
           }
 

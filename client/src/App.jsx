@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     getData('metadata').then(response => {
       setLocationsMetadata(response);
-      console.log(response);
+      // console.log(response);
     })
   }, []);  
 
@@ -45,11 +45,13 @@ const App = () => {
               element={
                 <LocationPage 
                   locationName={key.charAt(0).toUpperCase() + key.slice(1)}
-                />} 
+                  averageRating={value.avg_rating}
+                />
+              } 
             />))
           }
           <Route 
-            path={`/items/:locationName/:id`}
+            path={`/:locationName/:id`}
             element={<ItemPage />}
           />
         </Routes>

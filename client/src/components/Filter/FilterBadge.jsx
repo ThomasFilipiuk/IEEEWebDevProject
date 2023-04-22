@@ -1,17 +1,20 @@
 import Badge from 'react-bootstrap/Badge';
-import "./ItemBadge.css"
 
-const ItemBadge = ({ href, text }) => {
+const FilterBadge = ({ text }) => {
   return (
+    // <p>WHAT</p>
     <Badge 
       // href={ href }
       pill
-      bg="secondary"
+      // bg="secondary"
       className={text.toLowerCase()}
+      style={{
+        marginLeft: 5
+      }}
     >
-      { text }
+      No
     </Badge>
   )
 }
 
-export default ItemBadge;
+export default FilterBadge;

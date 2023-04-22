@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findTopRating = exports.findAverageRating = exports.deleteMany = exports.updateOne = exports.findOne = exports.find = exports.insertOne = void 0;
+exports.findTopRating = exports.findAverageRating = exports.aggregate = exports.deleteMany = exports.updateOne = exports.findOne = exports.find = exports.insertOne = void 0;
 const client_1 = __importDefault(require("./client"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -69,6 +69,17 @@ async function deleteMany(collection, filter) {
     }
 }
 exports.deleteMany = deleteMany;
+async function aggregate(collection, pipeline, options) {
+    try {
+        const collectionObject = getCollectionObject(collection);
+        const response = await collectionObject.aggregate(pipeline, options).toArray();
+        return response;
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
+exports.aggregate = aggregate;
 //for a given dining hall, find the top and avg rating
 async function findAverageRating(collection, diningHall) {
     const collectionObject = getCollectionObject(collection);
