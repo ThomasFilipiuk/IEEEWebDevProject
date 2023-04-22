@@ -17,6 +17,8 @@ import SearchIcon from '../components/SearchIcon/SearchIcon';
 import ItemBadge from '../components/ItemBadge/ItemBadge';
 import Button from 'react-bootstrap/Button';
 import PlusIcon from '../components/PlusIcon/PlusIcon';
+import SortBy from '../components/SortBy/SortBy';
+import SortByField from '../components/SortBy/SortByField';
 
 // const LocationPage = ({ locationData, itemsData, reviewsData, locationName }) => {
 const LocationPage = ({ locationName, averageRating }) => {
@@ -27,12 +29,15 @@ const LocationPage = ({ locationName, averageRating }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const [open, setOpen] = useState(false);
+  const [sortByOpen, setSortByOpen] = useState(false);
   const [mealTimesFilter, setMealTimesFilter] = useState({
     "Breakfast": false,
     "Lunch": false,
     "Dinner": false,
     "Every Day": false
   });
+  const [sortBy, setSortBy] = useState(null);
+  const [sortByField, setSortByField] = useState("Calories")
 
   const allMealTimesFilter = {
     "Breakfast": true,
@@ -57,6 +62,59 @@ const LocationPage = ({ locationName, averageRating }) => {
       result[category] = [];
     }
     result[category].push(item);
+    // console.log(item)
+
+    if (sortBy === "Highest rated") {
+      result[category].sort((item1, item2) => ((item2.total_rating / item2.num_reviews) - (item1.total_rating / item1.num_reviews)));
+    }
+    else if (sortBy === "Lowest rated") {
+      result[category].sort((item1, item2) => ((item1.total_rating / item1.num_reviews) - (item2.total_rating / item2.num_reviews)));
+    }
+    else if (sortBy === "Highest field") {
+      result[category].sort((item1, item2) => {
+        if (item1.nutritional_info && item2.nutritional_info) {
+          let item1Val;
+          let item2Val;
+          for (const nutrient of item1.nutritional_info.nutrients) {
+            if (nutrient.name === sortByField) {
+              item1Val = parseInt(nutrient.value);
+              break;
+            }
+          }
+          for (const nutrient of item2.nutritional_info.nutrients) {
+            if (nutrient.name === sortByField) {
+              item2Val = parseInt(nutrient.value);
+              break;
+            }
+          }
+          return item2Val - item1Val;
+        }
+        return 1;
+      });
+    }
+    else if (sortBy === "Lowest field") {
+      result[category].sort((item1, item2) => {
+        if (item1.nutritional_info && item2.nutritional_info) {
+          let item1Val;
+          let item2Val;
+          for (const nutrient of item1.nutritional_info.nutrients) {
+            if (nutrient.name === sortByField) {
+              item1Val = parseInt(nutrient.value);
+              break;
+            }
+          }
+          for (const nutrient of item2.nutritional_info.nutrients) {
+            if (nutrient.name === sortByField) {
+              item2Val = parseInt(nutrient.value);
+              break;
+            }
+          }
+          return item1Val - item2Val;
+        }
+        return 1;
+      });
+    }
+
     return result;
   }, {}) : null;  
   
@@ -208,6 +266,14 @@ const LocationPage = ({ locationName, averageRating }) => {
     updateData(mealTimesFilter, newNutritionalInfoFilter, searchedData, searchQuery != "");
   }
 
+  const handleSortByFieldChange = (value) => {
+    setSortByField(value);
+  }
+
+  const handleSortByChange = (e, option) => {
+    setSortBy(option);
+  }
+
   const mealTimes = ["Breakfast", "Lunch", "Dinner", "Every Day"];
 
   const filterFields = [];
@@ -265,7 +331,7 @@ const LocationPage = ({ locationName, averageRating }) => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-between mt-4">
-            <InputGroup  onChange={handleInputChange} style={{width: "90%"}}>
+            <InputGroup  onChange={handleInputChange} style={{width: "83%"}}>
               <InputGroup.Text><SearchIcon /></InputGroup.Text>
               <Form.Control
                 placeholder="Search by menu item name..."
@@ -276,6 +342,10 @@ const LocationPage = ({ locationName, averageRating }) => {
             <Filter 
               open={open}
               setOpen={setOpen}
+            />
+            <SortBy
+              open={sortByOpen}
+              setOpen={setSortByOpen}
             />
           </Col>
         </Row>
@@ -313,6 +383,52 @@ const LocationPage = ({ locationName, averageRating }) => {
                 >
                   <PlusIcon />
                 </Button>
+              </Form>
+            </Collapse>
+            <Collapse in={sortByOpen} className="m-3">
+              <Form>
+                <Form.Check
+                  type="radio"
+                  label="None"
+                  className="d-inline-block"
+                  onChange={(e) => handleSortByChange(e, "")}
+                  name="group1"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Highest rated"
+                  className="d-inline-block"
+                  style={{marginLeft: 25}}
+                  onChange={(e) => handleSortByChange(e, "Highest rated")}
+                  name="group1"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Lowest rated"
+                  className="d-inline-block"
+                  onChange={(e) => handleSortByChange(e, "Lowest rated")}
+                  style={{marginLeft: 25}}
+                  name="group1"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Highest"
+                  className="d-inline-block"
+                  onChange={(e) => handleSortByChange(e, `Highest field`)}
+                  style={{marginLeft: 25}}
+                  name="group1"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Lowest"
+                  className="d-inline-block"
+                  onChange={(e) => handleSortByChange(e, `Lowest field`)}
+                  style={{marginLeft: 25}}
+                  name="group1"
+                />
+                <SortByField
+                  setNutritionalInfoField={handleSortByFieldChange}
+                />
               </Form>
             </Collapse>
           </Col>
