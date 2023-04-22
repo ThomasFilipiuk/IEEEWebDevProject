@@ -51,13 +51,15 @@ const ItemCard = ({ itemData }) => {
           </Carousel.Item>     
           <Carousel.Item>
             <Card.Title>Nutritional Info</Card.Title>
-            <Card.Text>
+            <div>
               {itemData.nutritional_info && itemData.nutritional_info.nutrients.map((e) => {
-                return (<Card.Text>
-                  {e.name}: {e.value}
-                </Card.Text>)
+                return (
+                  <Card.Text key={`${itemData._id}-${e.name}`}>
+                    {e.name}: {e.value}
+                  </Card.Text>
+                )
               })}
-            </Card.Text>  
+            </div>  
           </Carousel.Item>  
         </Carousel> 
       </Card.Body>

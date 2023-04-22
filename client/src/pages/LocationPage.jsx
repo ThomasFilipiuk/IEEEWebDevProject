@@ -22,6 +22,10 @@ import PlusIcon from '../components/PlusIcon/PlusIcon';
 const LocationPage = ({ locationName, averageRating }) => {
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
+  const [searchedData, setSearchedData] = useState([]);
+  
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [open, setOpen] = useState(false);
   const [mealTimesFilter, setMealTimesFilter] = useState({
     "Breakfast": false,
@@ -29,6 +33,13 @@ const LocationPage = ({ locationName, averageRating }) => {
     "Dinner": false,
     "Every Day": false
   });
+
+  const allMealTimesFiler = {
+    "Breakfast": true,
+    "Lunch": true,
+    "Dinner": true,
+    "Every Day": true
+  };
 
   const [nutritionalInfoFilter, setNutritionalInfoFilter] = useState([]);
 
@@ -52,24 +63,108 @@ const LocationPage = ({ locationName, averageRating }) => {
   // console.log('groupeditems', groupedItems);
   
   const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
     getData(`dining-hall/${locationName}?name=${e.target.value}`)
-      .then(response => setData(response));
+      .then(response => {
+        setSearchedData(response);
+
+        updateData(mealTimesFilter, nutritionalInfoFilter, response, e.target.value !== "");
+      });
   }
 
   const handleMealTimesFilterChange = (checked, mealTime) => {
     const newMealTimesFilter = {... mealTimesFilter};
     newMealTimesFilter[mealTime] = checked;
-    console.log(newMealTimesFilter);
     setMealTimesFilter(newMealTimesFilter);
 
+    updateData(newMealTimesFilter, nutritionalInfoFilter, searchedData, searchQuery !== "");
+  }
+
+  const handleAddFilterClick = () => {
+    const newNutritionalInfoFilter = [...nutritionalInfoFilter];
+    newNutritionalInfoFilter.push({
+      nutritionalInfoField: "Calories",
+      comparisonOperator: "<",
+      value: null
+    });
+
+    setNutritionalInfoFilter(newNutritionalInfoFilter);
+    console.log(newNutritionalInfoFilter);
+  }
+
+  const filterItem = (nutrient, info) => {
+    nutrient.value = parseInt(nutrient.value)
+    if (info.comparisonOperator === "<" && nutrient.value < info.value) {
+      return true;
+    }
+    else if (info.comparisonOperator === "<=" && nutrient.value <= info.value) {
+      return true;
+    }
+    else if (info.comparisonOperator === ">" && nutrient.value > info.value) {
+      return true;
+    }
+    else if (info.comparisonOperator === ">=" && nutrient.value >= info.value) {
+      return true;
+    }
+    else if (info.comparisonOperator === "==" && nutrient.value === info.value) {
+      return true;
+    }
+    else if (info.comparisonOperator === "!=" && nutrient.value !== info.value) {
+      return true;
+    }
+    return false;
+  }
+
+  const updateData = (newMealTimesFilter, newNutritionalInfoFilter, searchedData, useSearch) => {
     if (Object.values(newMealTimesFilter).every(e => e === false)) {
-      setData(allData);
-      return;
+      newMealTimesFilter = allMealTimesFiler;
+    }
+    
+    const newData = [];
+    // console.log(useSearch)
+
+    let currData;
+    if (useSearch) {
+      currData = searchedData;
+    }
+    else {
+      currData = allData;
     }
 
-    const newData = [];
-    for (const item of data) {
-      if (newMealTimesFilter[item.meal_time]) {
+    for (const item of currData) {
+      if (item.nutritional_info === null) {
+        continue;
+      }
+      
+      let isCorrectMealTime = false;
+      for (const [mealTime, checked] of Object.entries(newMealTimesFilter)) {
+        if (item.meal_time === mealTime) {
+          if (checked) {
+            isCorrectMealTime = true;
+          }
+          break;
+        }
+      }
+
+      if (!isCorrectMealTime) {
+        continue;
+      }
+
+      let filtered = true;
+      for (const filter of newNutritionalInfoFilter) {
+        if (filter.value === null) {
+          continue;
+        }
+        for (const nutrient of item.nutritional_info.nutrients) {
+          if (nutrient.name === filter.nutritionalInfoField) {
+            if (!filterItem(nutrient, filter)) {
+              filtered = false;
+            }
+            break;
+          }
+        }
+      }
+      if (filtered) {
         newData.push(item);
       }
     }
@@ -77,13 +172,47 @@ const LocationPage = ({ locationName, averageRating }) => {
     setData(newData);
   }
 
-  const handleAddFilterClick = () => {
+  const handleRemoveIndex = (index) => {
     const newNutritionalInfoFilter = [...nutritionalInfoFilter];
-    newNutritionalInfoFilter.push({});
+    console.log(newNutritionalInfoFilter, index);
+    newNutritionalInfoFilter.splice(index, 1);
+    console.log(newNutritionalInfoFilter);
     setNutritionalInfoFilter(newNutritionalInfoFilter);
+
+    if (newNutritionalInfoFilter.length === 0) {
+      setData(allData);
+      return;
+    }
+
+    updateData(mealTimesFilter, newNutritionalInfoFilter, searchedData, searchQuery !== "");
+  }
+
+  const handleUpdateIndex = (index, info) => {
+    const newNutritionalInfoFilter = [...nutritionalInfoFilter];
+    newNutritionalInfoFilter[index] = info;
+    setNutritionalInfoFilter(newNutritionalInfoFilter);
+
+    if (info.value === null) {
+      return;
+    }
+
+    updateData(mealTimesFilter, newNutritionalInfoFilter, searchedData, searchQuery != "");
   }
 
   const mealTimes = ["Breakfast", "Lunch", "Dinner", "Every Day"];
+
+  const filterFields = [];
+
+  for (let i = 0; i < nutritionalInfoFilter.length; i++) {
+    filterFields.push(
+      <FilterField 
+        index={i}
+        filter={nutritionalInfoFilter[i]}
+        handleRemoveIndex={handleRemoveIndex}
+        handleUpdateIndex={handleUpdateIndex}
+      />
+    );
+  }
 
   return (
     <div className="App bg-light">
@@ -146,6 +275,7 @@ const LocationPage = ({ locationName, averageRating }) => {
                 { mealTimes.map(e => {
                   return (
                     <Form.Check
+                      key={`checkbox-${e}`}
                       onChange={(event) => handleMealTimesFilterChange(event.target.checked, e)}
                       type="checkbox"
                       label={<ItemBadge text={e}/>}
@@ -157,14 +287,11 @@ const LocationPage = ({ locationName, averageRating }) => {
                   );
                 }) }
 
-                {nutritionalInfoFilter.map(e => {
-                  return (
-                    <FilterField />
-                  )
-                })}
+                { filterFields }
+                <div />
                 <Button
                   variant="outline-dark"
-                  className="align-middle"
+                  className="align-middle mt-3"
                   style={{
                     marginLeft: 25,
                     width: 30,
@@ -175,17 +302,12 @@ const LocationPage = ({ locationName, averageRating }) => {
                 >
                   <PlusIcon />
                 </Button>
-                {/* <div className="d-inline-block">
-                  <Form.Select>
-                    <option></option>
-                  </Form.Select> 
-                </div> */}
               </Form>
             </Collapse>
           </Col>
         </Row>
         {data ? Object.keys(groupedItems).map(category => (
-          <Row className="mt-4 mb-4">
+          <Row key={category} className="mt-4 mb-4">
             <Col>
               <h2>{category}</h2>
               <hr />
