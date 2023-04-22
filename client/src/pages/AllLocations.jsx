@@ -17,7 +17,7 @@ const AllLocations = ({ data }) => {
   // console.log('object entry data:',Object.entries(data));
   // console.log('sorted data:',sortedData);
   return (
-    <div className="App">
+    <div className="App bg-light">
       <AppNav></AppNav>      
       
       <Container fluid="md">

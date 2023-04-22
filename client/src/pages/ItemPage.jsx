@@ -45,9 +45,9 @@ const ItemPage = () => {
   const handleShowModal = () => setShowModal(true);
 
   return (
-    <div>
+    <div className="App bg-light">
     {itemData && reviewsData && (
-      <div className="App">
+      <div>
         <Alert 
           className="position-fixed w-75 start-50 translate-middle-x"
           style={{

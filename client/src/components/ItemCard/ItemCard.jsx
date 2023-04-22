@@ -18,11 +18,11 @@ const PrevIcon = () => {
   )
 }
 
-const PrevIcon = () => {
-  return (
-    <span aria-hidden="true" className="carousel-control-prev-icon position-absolute"/>
-  )
-}
+// const PrevIcon = () => {
+//   return (
+//     <span aria-hidden="true" className="carousel-control-prev-icon position-absolute"/>
+//   )
+// }
 
 const ItemCard = ({ itemData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,7 +39,7 @@ const ItemCard = ({ itemData }) => {
     <Card className='m-3 text-start d-flex flex-column' style={{ width: '20rem', height: '210px' }}>
       <Card.Body className='d-flex overflow-auto'>
         <Carousel 
-          className="flex-grow-1 px-5 pt-1" 
+          className="flex-grow-1 px-2 pt-1" 
           activeIndex={activeIndex} 
           onSelect={handleSelect}
           variant='dark'

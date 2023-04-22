@@ -34,7 +34,7 @@ const LocationPage = ({ locationName, averageRating }) => {
     "Every Day": false
   });
 
-  const allMealTimesFiler = {
+  const allMealTimesFilter = {
     "Breakfast": true,
     "Lunch": true,
     "Dinner": true,
@@ -60,7 +60,7 @@ const LocationPage = ({ locationName, averageRating }) => {
     return result;
   }, {}) : null;  
   
-  const mealGroupedItems = data ? data.reduce((result, item) => {
+  const mealGroupedItems = allData ? allData.reduce((result, item) => {
     if (!result[item.meal_time]) {
       result[item.meal_time] = [];
     }
@@ -126,7 +126,7 @@ const LocationPage = ({ locationName, averageRating }) => {
 
   const updateData = (newMealTimesFilter, newNutritionalInfoFilter, searchedData, useSearch) => {
     if (Object.values(newMealTimesFilter).every(e => e === false)) {
-      newMealTimesFilter = allMealTimesFiler;
+      newMealTimesFilter = allMealTimesFilter;
     }
     
     const newData = [];
@@ -223,6 +223,8 @@ const LocationPage = ({ locationName, averageRating }) => {
     );
   }
 
+  // console.log(mealGroupedItems);
+
   return (
     <div className="App bg-light">
       <Container fluid="md">
@@ -250,15 +252,15 @@ const LocationPage = ({ locationName, averageRating }) => {
         <Row>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Breakfast</span></h3>
-            {mealGroupedItems ? mealGroupedItems['Breakfast'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
+            {mealGroupedItems && mealGroupedItems["Breakfast"] ? mealGroupedItems['Breakfast'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Lunch</span></h3>
-            {mealGroupedItems ? mealGroupedItems['Lunch'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
+            {mealGroupedItems && mealGroupedItems["Lunch"] ? mealGroupedItems['Lunch'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
           <Col>
             <h3><span className='badge text-secondary' style={{backgroundColor:'#e4e8ec'}}>Dinner</span></h3>
-            {mealGroupedItems ? mealGroupedItems['Dinner'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
+            {mealGroupedItems && mealGroupedItems["Dinner"] ? mealGroupedItems['Dinner'].sort((item1, item2) => (item1.rating - item2.rating)).slice(0,3).map(item => (<p>{item.name}</p>)) : ''}
           </Col>
         </Row>
         <Row>

@@ -33,7 +33,7 @@ const App = () => {
   // };
   // console.log(Object.entries(data.locations));
   return (
-    <div>
+    <div className="bg-light h-100">
     {locationsMetadata ?
       <BrowserRouter>
         <Routes>
