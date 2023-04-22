@@ -5,7 +5,7 @@ import RatingStars from '../RatingStars/RatingStars';
 
 const LocationCard = ({locationData, locationName}) => {
   const [topItem, setTopItem] = useState(null);
-  console.log('locationdata:',locationData);
+  // console.log('locationdata:',locationData);
   const topItemId = locationData.top_item?.item_id;
   useEffect(() => {
     if (topItemId !== undefined) { 

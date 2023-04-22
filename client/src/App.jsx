@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     getData('metadata').then(response => {
       setLocationsMetadata(response);
-      console.log(response);
+      // console.log(response);
     })
   }, []);  
 

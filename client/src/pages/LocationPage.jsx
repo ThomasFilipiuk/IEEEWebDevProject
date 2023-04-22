@@ -8,12 +8,15 @@ import Collapse from 'react-bootstrap/Collapse';
 import FilterBadge from "../components/Filter/FilterBadge";
 import ItemCard from '../components/ItemCard/ItemCard';
 import Filter from '../components/Filter/Filter';
+import FilterField from '../components/FilterField/FilterField';
 import { Link } from 'react-router-dom';
 import { getData } from '../../utilities/apiUtilities';
 import { useEffect, useState } from 'react';
 import RatingStars from '../components/RatingStars/RatingStars';
 import SearchIcon from '../components/SearchIcon/SearchIcon';
 import ItemBadge from '../components/ItemBadge/ItemBadge';
+import Button from 'react-bootstrap/Button';
+import PlusIcon from '../components/PlusIcon/PlusIcon';
 
 // const LocationPage = ({ locationData, itemsData, reviewsData, locationName }) => {
 const LocationPage = ({ locationName, averageRating }) => {
@@ -26,6 +29,8 @@ const LocationPage = ({ locationName, averageRating }) => {
     "Dinner": false,
     "Every Day": false
   });
+
+  const [nutritionalInfoFilter, setNutritionalInfoFilter] = useState([]);
 
   useEffect(() => {
     getData(`dining-hall/${locationName}`).then(response => {
@@ -43,8 +48,8 @@ const LocationPage = ({ locationName, averageRating }) => {
     result[category].push(item);
     return result;
   }, {}) : null;
-  console.log(data);
-  console.log('groupeditems', groupedItems);
+  // console.log(data);
+  // console.log('groupeditems', groupedItems);
   
   const handleInputChange = (e) => {
     getData(`dining-hall/${locationName}?name=${e.target.value}`)
@@ -72,6 +77,12 @@ const LocationPage = ({ locationName, averageRating }) => {
     setData(newData);
   }
 
+  const handleAddFilterClick = () => {
+    const newNutritionalInfoFilter = [...nutritionalInfoFilter];
+    newNutritionalInfoFilter.push({});
+    setNutritionalInfoFilter(newNutritionalInfoFilter);
+  }
+
   const mealTimes = ["Breakfast", "Lunch", "Dinner", "Every Day"];
 
   return (
@@ -87,6 +98,7 @@ const LocationPage = ({ locationName, averageRating }) => {
                 readOnly
                 value={averageRating}
                 size="large"
+                precision={0.1}
               />
             </div>
             <Link to="/">Return to locations</Link>
@@ -137,13 +149,37 @@ const LocationPage = ({ locationName, averageRating }) => {
                       onChange={(event) => handleMealTimesFilterChange(event.target.checked, e)}
                       type="checkbox"
                       label={<ItemBadge text={e}/>}
-                      className="d-inline-block"
+                      className="d-inline-block align-middle"
                       style={{
                         marginLeft: 25
                       }}
                     />
                   );
                 }) }
+
+                {nutritionalInfoFilter.map(e => {
+                  return (
+                    <FilterField />
+                  )
+                })}
+                <Button
+                  variant="outline-dark"
+                  className="align-middle"
+                  style={{
+                    marginLeft: 25,
+                    width: 30,
+                    height: 30,
+                    padding: 0,
+                  }}
+                  onClick={handleAddFilterClick}
+                >
+                  <PlusIcon />
+                </Button>
+                {/* <div className="d-inline-block">
+                  <Form.Select>
+                    <option></option>
+                  </Form.Select> 
+                </div> */}
               </Form>
             </Collapse>
           </Col>
